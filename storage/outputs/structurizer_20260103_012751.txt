@@ -1,0 +1,4059 @@
+Анализ проекта: D:\structurizer\structurizer
+
+Структура проекта:
+└── structurizer
+    ├── .git
+    │   ├── hooks
+    │   │   ├── applypatch-msg.sample
+    │   │   ├── commit-msg.sample
+    │   │   ├── fsmonitor-watchman.sample
+    │   │   ├── post-update.sample
+    │   │   ├── pre-applypatch.sample
+    │   │   ├── pre-commit.sample
+    │   │   ├── pre-merge-commit.sample
+    │   │   ├── pre-push.sample
+    │   │   ├── pre-rebase.sample
+    │   │   ├── pre-receive.sample
+    │   │   ├── prepare-commit-msg.sample
+    │   │   ├── push-to-checkout.sample
+    │   │   ├── sendemail-validate.sample
+    │   │   └── update.sample
+    │   ├── info
+    │   │   └── exclude
+    │   ├── logs
+    │   │   ├── refs
+    │   │   │   ├── heads
+    │   │   │   │   └── main
+    │   │   │   └── remotes
+    │   │   │       └── origin
+    │   │   │           ├── HEAD
+    │   │   │           └── main
+    │   │   └── HEAD
+    │   ├── objects
+    │   │   ├── 14
+    │   │   │   └── 347fade93dd2d8328c8c9f4449e1134b6ef3a4
+    │   │   ├── 19
+    │   │   │   └── 4093dbac047573d96e7e834ecb896d094ae2d9
+    │   │   ├── 22
+    │   │   │   └── a24b43955f9c7aef78fcc838dcd2b24afe695a
+    │   │   ├── 3c
+    │   │   │   └── 1489fda57dd0fa41b7dd78c6635678682117f1
+    │   │   ├── 41
+    │   │   │   └── 93700039dfbc77cd17733b026418db135ce1b8
+    │   │   ├── 45
+    │   │   │   └── 168a00fae81ee83507ee35552db3ec77932864
+    │   │   ├── 47
+    │   │   │   └── aa816b16c4a9c1e30f08bdcb44318a12f49c76
+    │   │   ├── 5c
+    │   │   │   └── e52d4188c46c90b1dfe0c2ed16fd16d398ae3d
+    │   │   ├── 5d
+    │   │   │   └── 80fb936916043dc4d72751abaf1e9d56d0a995
+    │   │   ├── 68
+    │   │   │   └── 1a64a31439263be3e3e446095dc69f50c96c70
+    │   │   ├── 92
+    │   │   │   └── 33020c92037746e1cad8a79659e724f0c14e71
+    │   │   ├── 94
+    │   │   │   └── 174eb1f1354543f2e4f22d409f11aa47d2c604
+    │   │   ├── a6
+    │   │   │   └── a04d9f78235fad78da129b127753df6a183fc4
+    │   │   ├── a7
+    │   │   │   └── 7d57055ab5322b1f28fcd36548e1d2ae9fd679
+    │   │   ├── c6
+    │   │   │   └── e0f4590348bf21a914d47390158c9760f014bb
+    │   │   ├── ca
+    │   │   │   └── 28793b582847ebdedf926dabeeb9aa67635899
+    │   │   ├── ce
+    │   │   │   └── 31163dd5fd4b54c9f268d808daa466b0f419a7
+    │   │   ├── e6
+    │   │   │   ├── 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+    │   │   │   └── df4435325067fba0077889f80ceecf88345e6a
+    │   │   ├── info
+    │   │   └── pack
+    │   │       ├── pack-696e5f00ad532ef391262a4d3e356026271e3448.idx
+    │   │       ├── pack-696e5f00ad532ef391262a4d3e356026271e3448.pack
+    │   │       └── pack-696e5f00ad532ef391262a4d3e356026271e3448.rev
+    │   ├── refs
+    │   │   ├── heads
+    │   │   │   └── main
+    │   │   ├── remotes
+    │   │   │   └── origin
+    │   │   │       ├── HEAD
+    │   │   │       └── main
+    │   │   └── tags
+    │   ├── COMMIT_EDITMSG
+    │   ├── config
+    │   ├── description
+    │   ├── HEAD
+    │   ├── index
+    │   └── packed-refs
+    ├── __pycache__
+    │   ├── __init__.cpython-311.pyc
+    │   ├── __init__.cpython-312.pyc
+    │   ├── app.cpython-311.pyc
+    │   ├── app.cpython-312.pyc
+    │   └── struct.cpython-311.pyc
+    ├── analyzer
+    │   ├── __pycache__
+    │   │   ├── __init__.cpython-311.pyc
+    │   │   └── project_analyzer.cpython-311.pyc
+    │   ├── __init__.py
+    │   └── project_analyzer.py
+    ├── storage
+    │   ├── __pycache__
+    │   │   ├── __init__.cpython-311.pyc
+    │   │   └── history_manager.cpython-311.pyc
+    │   ├── outputs
+    │   │   ├── history.json
+    │   │   └── structurizer_20260103_012751.txt
+    │   ├── __init__.py
+    │   ├── history.json
+    │   └── history_manager.py
+    ├── test
+    │   ├── analyzer
+    │   │   ├── __pycache__
+    │   │   │   └── project_analyzer.cpython-311.pyc
+    │   │   └── project_analyzer.py
+    │   ├── storage
+    │   │   ├── __pycache__
+    │   │   │   └── history_manager.cpython-311.pyc
+    │   │   ├── outputs
+    │   │   ├── history.json
+    │   │   └── history_manager.py
+    │   ├── test.py
+    │   └── test_history.py
+    ├── ui
+    │   ├── __pycache__
+    │   │   ├── __init__.cpython-311.pyc
+    │   │   └── main_window.cpython-311.pyc
+    │   ├── __init__.py
+    │   └── main_window.py
+    ├── .gitignore
+    ├── __init__.py
+    ├── app.py
+    ├── LICENSE
+    └── README.md
+
+Текст из файлов проекта:
+
+Содержимое D:\structurizer\structurizer\.gitignore:
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[codz]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py.cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+#   For a library or package, you might want to ignore these files since the code is
+#   intended to run in multiple environments; otherwise, check them in:
+# .python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# UV
+#   Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control.
+#   This is especially recommended for binary packages to ensure reproducibility, and is more
+#   commonly ignored for libraries.
+#uv.lock
+
+# poetry
+#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
+#   This is especially recommended for binary packages to ensure reproducibility, and is more
+#   commonly ignored for libraries.
+#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
+#poetry.lock
+#poetry.toml
+
+# pdm
+#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
+#   pdm recommends including project-wide configuration in pdm.toml, but excluding .pdm-python.
+#   https://pdm-project.org/en/latest/usage/project/#working-with-version-control
+#pdm.lock
+#pdm.toml
+.pdm-python
+.pdm-build/
+
+# pixi
+#   Similar to Pipfile.lock, it is generally recommended to include pixi.lock in version control.
+#pixi.lock
+#   Pixi creates a virtual environment in the .pixi directory, just like venv module creates one
+#   in the .venv directory. It is recommended not to include this directory in version control.
+.pixi
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.envrc
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PyCharm
+#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
+#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
+#  and can be added to the global gitignore or merged into this file.  For a more nuclear
+#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
+#.idea/
+
+# Abstra
+# Abstra is an AI-powered process automation framework.
+# Ignore directories containing user credentials, local state, and settings.
+# Learn more at https://abstra.io/docs
+.abstra/
+
+# Visual Studio Code
+#  Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore 
+#  that can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
+#  and can be added to the global gitignore or merged into this file. However, if you prefer, 
+#  you could uncomment the following to ignore the entire vscode folder
+# .vscode/
+
+# Ruff stuff:
+.ruff_cache/
+
+# PyPI configuration file
+.pypirc
+
+# Cursor
+#  Cursor is an AI-powered code editor. `.cursorignore` specifies files/directories to
+#  exclude from AI features like autocomplete and code analysis. Recommended for sensitive data
+#  refer to https://docs.cursor.com/context/ignore-files
+.cursorignore
+.cursorindexingignore
+
+# Marimo
+marimo/_static/
+marimo/_lsp/
+__marimo__/
+
+
+Содержимое D:\structurizer\structurizer\app.py:
+import sys
+from PySide6.QtWidgets import QApplication
+from structurizer.ui.main_window import MainWindow
+
+
+def main():
+    app = QApplication(sys.argv)
+
+    window = MainWindow()
+    window.show()
+
+    sys.exit(app.exec())
+
+
+if __name__ == "__main__":
+    main()
+
+
+Содержимое D:\structurizer\structurizer\LICENSE:
+MIT License
+
+Copyright (c) 2026 Qwerty000101
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+Содержимое D:\structurizer\structurizer\README.md:
+# structurizer
+Приложение, составляющее текстовый файл, содержащий древовидную структуру папок и файлов в выбранной директории, а также код из файлов с выбранными расширениями. 
+
+
+Содержимое D:\structurizer\structurizer\__init__.py:
+
+
+Содержимое D:\structurizer\structurizer\.git\COMMIT_EDITMSG:
+Add new functions
+
+
+Содержимое D:\structurizer\structurizer\.git\config:
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+[remote "origin"]
+	url = https://github.com/Qwerty000101/structurizer.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+
+
+Содержимое D:\structurizer\structurizer\.git\description:
+Unnamed repository; edit this file 'description' to name the repository.
+
+
+Содержимое D:\structurizer\structurizer\.git\HEAD:
+ref: refs/heads/main
+
+
+Содержимое D:\structurizer\structurizer\.git\index:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\packed-refs:
+# pack-refs with: peeled fully-peeled sorted 
+39eed801c68e09643085ebee1640ee5d05013043 refs/remotes/origin/main
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\applypatch-msg.sample:
+#!/bin/sh
+#
+# An example hook script to check the commit log message taken by
+# applypatch from an e-mail message.
+#
+# The hook should exit with non-zero status after issuing an
+# appropriate message if it wants to stop the commit.  The hook is
+# allowed to edit the commit message file.
+#
+# To enable this hook, rename this file to "applypatch-msg".
+
+. git-sh-setup
+commitmsg="$(git rev-parse --git-path hooks/commit-msg)"
+test -x "$commitmsg" && exec "$commitmsg" ${1+"$@"}
+:
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\commit-msg.sample:
+#!/bin/sh
+#
+# An example hook script to check the commit log message.
+# Called by "git commit" with one argument, the name of the file
+# that has the commit message.  The hook should exit with non-zero
+# status after issuing an appropriate message if it wants to stop the
+# commit.  The hook is allowed to edit the commit message file.
+#
+# To enable this hook, rename this file to "commit-msg".
+
+# Uncomment the below to add a Signed-off-by line to the message.
+# Doing this in a hook is a bad idea in general, but the prepare-commit-msg
+# hook is more suited to it.
+#
+# SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+# grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
+
+# This example catches duplicate Signed-off-by lines.
+
+test "" = "$(grep '^Signed-off-by: ' "$1" |
+	 sort | uniq -c | sed -e '/^[ 	]*1[ 	]/d')" || {
+	echo >&2 Duplicate Signed-off-by lines.
+	exit 1
+}
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\fsmonitor-watchman.sample:
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use IPC::Open2;
+
+# An example hook script to integrate Watchman
+# (https://facebook.github.io/watchman/) with git to speed up detecting
+# new and modified files.
+#
+# The hook is passed a version (currently 2) and last update token
+# formatted as a string and outputs to stdout a new update token and
+# all files that have been modified since the update token. Paths must
+# be relative to the root of the working tree and separated by a single NUL.
+#
+# To enable this hook, rename this file to "query-watchman" and set
+# 'git config core.fsmonitor .git/hooks/query-watchman'
+#
+my ($version, $last_update_token) = @ARGV;
+
+# Uncomment for debugging
+# print STDERR "$0 $version $last_update_token\n";
+
+# Check the hook interface version
+if ($version ne 2) {
+	die "Unsupported query-fsmonitor hook version '$version'.\n" .
+	    "Falling back to scanning...\n";
+}
+
+my $git_work_tree = get_working_dir();
+
+my $retry = 1;
+
+my $json_pkg;
+eval {
+	require JSON::XS;
+	$json_pkg = "JSON::XS";
+	1;
+} or do {
+	require JSON::PP;
+	$json_pkg = "JSON::PP";
+};
+
+launch_watchman();
+
+sub launch_watchman {
+	my $o = watchman_query();
+	if (is_work_tree_watched($o)) {
+		output_result($o->{clock}, @{$o->{files}});
+	}
+}
+
+sub output_result {
+	my ($clockid, @files) = @_;
+
+	# Uncomment for debugging watchman output
+	# open (my $fh, ">", ".git/watchman-output.out");
+	# binmode $fh, ":utf8";
+	# print $fh "$clockid\n@files\n";
+	# close $fh;
+
+	binmode STDOUT, ":utf8";
+	print $clockid;
+	print "\0";
+	local $, = "\0";
+	print @files;
+}
+
+sub watchman_clock {
+	my $response = qx/watchman clock "$git_work_tree"/;
+	die "Failed to get clock id on '$git_work_tree'.\n" .
+		"Falling back to scanning...\n" if $? != 0;
+
+	return $json_pkg->new->utf8->decode($response);
+}
+
+sub watchman_query {
+	my $pid = open2(\*CHLD_OUT, \*CHLD_IN, 'watchman -j --no-pretty')
+	or die "open2() failed: $!\n" .
+	"Falling back to scanning...\n";
+
+	# In the query expression below we're asking for names of files that
+	# changed since $last_update_token but not from the .git folder.
+	#
+	# To accomplish this, we're using the "since" generator to use the
+	# recency index to select candidate nodes and "fields" to limit the
+	# output to file names only. Then we're using the "expression" term to
+	# further constrain the results.
+	my $last_update_line = "";
+	if (substr($last_update_token, 0, 1) eq "c") {
+		$last_update_token = "\"$last_update_token\"";
+		$last_update_line = qq[\n"since": $last_update_token,];
+	}
+	my $query = <<"	END";
+		["query", "$git_work_tree", {$last_update_line
+			"fields": ["name"],
+			"expression": ["not", ["dirname", ".git"]]
+		}]
+	END
+
+	# Uncomment for debugging the watchman query
+	# open (my $fh, ">", ".git/watchman-query.json");
+	# print $fh $query;
+	# close $fh;
+
+	print CHLD_IN $query;
+	close CHLD_IN;
+	my $response = do {local $/; <CHLD_OUT>};
+
+	# Uncomment for debugging the watch response
+	# open ($fh, ">", ".git/watchman-response.json");
+	# print $fh $response;
+	# close $fh;
+
+	die "Watchman: command returned no output.\n" .
+	"Falling back to scanning...\n" if $response eq "";
+	die "Watchman: command returned invalid output: $response\n" .
+	"Falling back to scanning...\n" unless $response =~ /^\{/;
+
+	return $json_pkg->new->utf8->decode($response);
+}
+
+sub is_work_tree_watched {
+	my ($output) = @_;
+	my $error = $output->{error};
+	if ($retry > 0 and $error and $error =~ m/unable to resolve root .* directory (.*) is not watched/) {
+		$retry--;
+		my $response = qx/watchman watch "$git_work_tree"/;
+		die "Failed to make watchman watch '$git_work_tree'.\n" .
+		    "Falling back to scanning...\n" if $? != 0;
+		$output = $json_pkg->new->utf8->decode($response);
+		$error = $output->{error};
+		die "Watchman: $error.\n" .
+		"Falling back to scanning...\n" if $error;
+
+		# Uncomment for debugging watchman output
+		# open (my $fh, ">", ".git/watchman-output.out");
+		# close $fh;
+
+		# Watchman will always return all files on the first query so
+		# return the fast "everything is dirty" flag to git and do the
+		# Watchman query just to get it over with now so we won't pay
+		# the cost in git to look up each individual file.
+		my $o = watchman_clock();
+		$error = $output->{error};
+
+		die "Watchman: $error.\n" .
+		"Falling back to scanning...\n" if $error;
+
+		output_result($o->{clock}, ("/"));
+		$last_update_token = $o->{clock};
+
+		eval { launch_watchman() };
+		return 0;
+	}
+
+	die "Watchman: $error.\n" .
+	"Falling back to scanning...\n" if $error;
+
+	return 1;
+}
+
+sub get_working_dir {
+	my $working_dir;
+	if ($^O =~ 'msys' || $^O =~ 'cygwin') {
+		$working_dir = Win32::GetCwd();
+		$working_dir =~ tr/\\/\//;
+	} else {
+		require Cwd;
+		$working_dir = Cwd::cwd();
+	}
+
+	return $working_dir;
+}
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\post-update.sample:
+#!/bin/sh
+#
+# An example hook script to prepare a packed repository for use over
+# dumb transports.
+#
+# To enable this hook, rename this file to "post-update".
+
+exec git update-server-info
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\pre-applypatch.sample:
+#!/bin/sh
+#
+# An example hook script to verify what is about to be committed
+# by applypatch from an e-mail message.
+#
+# The hook should exit with non-zero status after issuing an
+# appropriate message if it wants to stop the commit.
+#
+# To enable this hook, rename this file to "pre-applypatch".
+
+. git-sh-setup
+precommit="$(git rev-parse --git-path hooks/pre-commit)"
+test -x "$precommit" && exec "$precommit" ${1+"$@"}
+:
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\pre-commit.sample:
+#!/bin/sh
+#
+# An example hook script to verify what is about to be committed.
+# Called by "git commit" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+#
+# To enable this hook, rename this file to "pre-commit".
+
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+	against=HEAD
+else
+	# Initial commit: diff against an empty tree object
+	against=$(git hash-object -t tree /dev/null)
+fi
+
+# If you want to allow non-ASCII filenames set this variable to true.
+allownonascii=$(git config --type=bool hooks.allownonascii)
+
+# Redirect output to stderr.
+exec 1>&2
+
+# Cross platform projects tend to avoid non-ASCII filenames; prevent
+# them from being added to the repository. We exploit the fact that the
+# printable range starts at the space character and ends with tilde.
+if [ "$allownonascii" != "true" ] &&
+	# Note that the use of brackets around a tr range is ok here, (it's
+	# even required, for portability to Solaris 10's /usr/bin/tr), since
+	# the square bracket bytes happen to fall in the designated range.
+	test $(git diff --cached --name-only --diff-filter=A -z $against |
+	  LC_ALL=C tr -d '[ -~]\0' | wc -c) != 0
+then
+	cat <<\EOF
+Error: Attempt to add a non-ASCII file name.
+
+This can cause problems if you want to work with people on other platforms.
+
+To be portable it is advisable to rename the file.
+
+If you know what you are doing you can disable this check using:
+
+  git config hooks.allownonascii true
+EOF
+	exit 1
+fi
+
+# If there are whitespace errors, print the offending file names and fail.
+exec git diff-index --check --cached $against --
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\pre-merge-commit.sample:
+#!/bin/sh
+#
+# An example hook script to verify what is about to be committed.
+# Called by "git merge" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message to
+# stderr if it wants to stop the merge commit.
+#
+# To enable this hook, rename this file to "pre-merge-commit".
+
+. git-sh-setup
+test -x "$GIT_DIR/hooks/pre-commit" &&
+        exec "$GIT_DIR/hooks/pre-commit"
+:
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\pre-push.sample:
+#!/bin/sh
+
+# An example hook script to verify what is about to be pushed.  Called by "git
+# push" after it has checked the remote status, but before anything has been
+# pushed.  If this script exits with a non-zero status nothing will be pushed.
+#
+# This hook is called with the following parameters:
+#
+# $1 -- Name of the remote to which the push is being done
+# $2 -- URL to which the push is being done
+#
+# If pushing without using a named remote those arguments will be equal.
+#
+# Information about the commits which are being pushed is supplied as lines to
+# the standard input in the form:
+#
+#   <local ref> <local oid> <remote ref> <remote oid>
+#
+# This sample shows how to prevent push of commits where the log message starts
+# with "WIP" (work in progress).
+
+remote="$1"
+url="$2"
+
+zero=$(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0')
+
+while read local_ref local_oid remote_ref remote_oid
+do
+	if test "$local_oid" = "$zero"
+	then
+		# Handle delete
+		:
+	else
+		if test "$remote_oid" = "$zero"
+		then
+			# New branch, examine all commits
+			range="$local_oid"
+		else
+			# Update to existing branch, examine new commits
+			range="$remote_oid..$local_oid"
+		fi
+
+		# Check for WIP commit
+		commit=$(git rev-list -n 1 --grep '^WIP' "$range")
+		if test -n "$commit"
+		then
+			echo >&2 "Found WIP commit in $local_ref, not pushing"
+			exit 1
+		fi
+	fi
+done
+
+exit 0
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\pre-rebase.sample:
+#!/bin/sh
+#
+# Copyright (c) 2006, 2008 Junio C Hamano
+#
+# The "pre-rebase" hook is run just before "git rebase" starts doing
+# its job, and can prevent the command from running by exiting with
+# non-zero status.
+#
+# The hook is called with the following parameters:
+#
+# $1 -- the upstream the series was forked from.
+# $2 -- the branch being rebased (or empty when rebasing the current branch).
+#
+# This sample shows how to prevent topic branches that are already
+# merged to 'next' branch from getting rebased, because allowing it
+# would result in rebasing already published history.
+
+publish=next
+basebranch="$1"
+if test "$#" = 2
+then
+	topic="refs/heads/$2"
+else
+	topic=`git symbolic-ref HEAD` ||
+	exit 0 ;# we do not interrupt rebasing detached HEAD
+fi
+
+case "$topic" in
+refs/heads/??/*)
+	;;
+*)
+	exit 0 ;# we do not interrupt others.
+	;;
+esac
+
+# Now we are dealing with a topic branch being rebased
+# on top of master.  Is it OK to rebase it?
+
+# Does the topic really exist?
+git show-ref -q "$topic" || {
+	echo >&2 "No such branch $topic"
+	exit 1
+}
+
+# Is topic fully merged to master?
+not_in_master=`git rev-list --pretty=oneline ^master "$topic"`
+if test -z "$not_in_master"
+then
+	echo >&2 "$topic is fully merged to master; better remove it."
+	exit 1 ;# we could allow it, but there is no point.
+fi
+
+# Is topic ever merged to next?  If so you should not be rebasing it.
+only_next_1=`git rev-list ^master "^$topic" ${publish} | sort`
+only_next_2=`git rev-list ^master           ${publish} | sort`
+if test "$only_next_1" = "$only_next_2"
+then
+	not_in_topic=`git rev-list "^$topic" master`
+	if test -z "$not_in_topic"
+	then
+		echo >&2 "$topic is already up to date with master"
+		exit 1 ;# we could allow it, but there is no point.
+	else
+		exit 0
+	fi
+else
+	not_in_next=`git rev-list --pretty=oneline ^${publish} "$topic"`
+	/usr/bin/perl -e '
+		my $topic = $ARGV[0];
+		my $msg = "* $topic has commits already merged to public branch:\n";
+		my (%not_in_next) = map {
+			/^([0-9a-f]+) /;
+			($1 => 1);
+		} split(/\n/, $ARGV[1]);
+		for my $elem (map {
+				/^([0-9a-f]+) (.*)$/;
+				[$1 => $2];
+			} split(/\n/, $ARGV[2])) {
+			if (!exists $not_in_next{$elem->[0]}) {
+				if ($msg) {
+					print STDERR $msg;
+					undef $msg;
+				}
+				print STDERR " $elem->[1]\n";
+			}
+		}
+	' "$topic" "$not_in_next" "$not_in_master"
+	exit 1
+fi
+
+<<\DOC_END
+
+This sample hook safeguards topic branches that have been
+published from being rewound.
+
+The workflow assumed here is:
+
+ * Once a topic branch forks from "master", "master" is never
+   merged into it again (either directly or indirectly).
+
+ * Once a topic branch is fully cooked and merged into "master",
+   it is deleted.  If you need to build on top of it to correct
+   earlier mistakes, a new topic branch is created by forking at
+   the tip of the "master".  This is not strictly necessary, but
+   it makes it easier to keep your history simple.
+
+ * Whenever you need to test or publish your changes to topic
+   branches, merge them into "next" branch.
+
+The script, being an example, hardcodes the publish branch name
+to be "next", but it is trivial to make it configurable via
+$GIT_DIR/config mechanism.
+
+With this workflow, you would want to know:
+
+(1) ... if a topic branch has ever been merged to "next".  Young
+    topic branches can have stupid mistakes you would rather
+    clean up before publishing, and things that have not been
+    merged into other branches can be easily rebased without
+    affecting other people.  But once it is published, you would
+    not want to rewind it.
+
+(2) ... if a topic branch has been fully merged to "master".
+    Then you can delete it.  More importantly, you should not
+    build on top of it -- other people may already want to
+    change things related to the topic as patches against your
+    "master", so if you need further changes, it is better to
+    fork the topic (perhaps with the same name) afresh from the
+    tip of "master".
+
+Let's look at this example:
+
+		   o---o---o---o---o---o---o---o---o---o "next"
+		  /       /           /           /
+		 /   a---a---b A     /           /
+		/   /               /           /
+	       /   /   c---c---c---c B         /
+	      /   /   /             \         /
+	     /   /   /   b---b C     \       /
+	    /   /   /   /             \     /
+    ---o---o---o---o---o---o---o---o---o---o---o "master"
+
+
+A, B and C are topic branches.
+
+ * A has one fix since it was merged up to "next".
+
+ * B has finished.  It has been fully merged up to "master" and "next",
+   and is ready to be deleted.
+
+ * C has not merged to "next" at all.
+
+We would want to allow C to be rebased, refuse A, and encourage
+B to be deleted.
+
+To compute (1):
+
+	git rev-list ^master ^topic next
+	git rev-list ^master        next
+
+	if these match, topic has not merged in next at all.
+
+To compute (2):
+
+	git rev-list master..topic
+
+	if this is empty, it is fully merged to "master".
+
+DOC_END
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\pre-receive.sample:
+#!/bin/sh
+#
+# An example hook script to make use of push options.
+# The example simply echoes all push options that start with 'echoback='
+# and rejects all pushes when the "reject" push option is used.
+#
+# To enable this hook, rename this file to "pre-receive".
+
+if test -n "$GIT_PUSH_OPTION_COUNT"
+then
+	i=0
+	while test "$i" -lt "$GIT_PUSH_OPTION_COUNT"
+	do
+		eval "value=\$GIT_PUSH_OPTION_$i"
+		case "$value" in
+		echoback=*)
+			echo "echo from the pre-receive-hook: ${value#*=}" >&2
+			;;
+		reject)
+			exit 1
+		esac
+		i=$((i + 1))
+	done
+fi
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\prepare-commit-msg.sample:
+#!/bin/sh
+#
+# An example hook script to prepare the commit log message.
+# Called by "git commit" with the name of the file that has the
+# commit message, followed by the description of the commit
+# message's source.  The hook's purpose is to edit the commit
+# message file.  If the hook fails with a non-zero status,
+# the commit is aborted.
+#
+# To enable this hook, rename this file to "prepare-commit-msg".
+
+# This hook includes three examples. The first one removes the
+# "# Please enter the commit message..." help message.
+#
+# The second includes the output of "git diff --name-status -r"
+# into the message, just before the "git status" output.  It is
+# commented because it doesn't cope with --amend or with squashed
+# commits.
+#
+# The third example adds a Signed-off-by line to the message, that can
+# still be edited.  This is rarely a good idea.
+
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+SHA1=$3
+
+/usr/bin/perl -i.bak -ne 'print unless(m/^. Please enter the commit message/..m/^#$/)' "$COMMIT_MSG_FILE"
+
+# case "$COMMIT_SOURCE,$SHA1" in
+#  ,|template,)
+#    /usr/bin/perl -i.bak -pe '
+#       print "\n" . `git diff --cached --name-status -r`
+# 	 if /^#/ && $first++ == 0' "$COMMIT_MSG_FILE" ;;
+#  *) ;;
+# esac
+
+# SOB=$(git var GIT_COMMITTER_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+# git interpret-trailers --in-place --trailer "$SOB" "$COMMIT_MSG_FILE"
+# if test -z "$COMMIT_SOURCE"
+# then
+#   /usr/bin/perl -i.bak -pe 'print "\n" if !$first_line++' "$COMMIT_MSG_FILE"
+# fi
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\push-to-checkout.sample:
+#!/bin/sh
+
+# An example hook script to update a checked-out tree on a git push.
+#
+# This hook is invoked by git-receive-pack(1) when it reacts to git
+# push and updates reference(s) in its repository, and when the push
+# tries to update the branch that is currently checked out and the
+# receive.denyCurrentBranch configuration variable is set to
+# updateInstead.
+#
+# By default, such a push is refused if the working tree and the index
+# of the remote repository has any difference from the currently
+# checked out commit; when both the working tree and the index match
+# the current commit, they are updated to match the newly pushed tip
+# of the branch. This hook is to be used to override the default
+# behaviour; however the code below reimplements the default behaviour
+# as a starting point for convenient modification.
+#
+# The hook receives the commit with which the tip of the current
+# branch is going to be updated:
+commit=$1
+
+# It can exit with a non-zero status to refuse the push (when it does
+# so, it must not modify the index or the working tree).
+die () {
+	echo >&2 "$*"
+	exit 1
+}
+
+# Or it can make any necessary changes to the working tree and to the
+# index to bring them to the desired state when the tip of the current
+# branch is updated to the new commit, and exit with a zero status.
+#
+# For example, the hook can simply run git read-tree -u -m HEAD "$1"
+# in order to emulate git fetch that is run in the reverse direction
+# with git push, as the two-tree form of git read-tree -u -m is
+# essentially the same as git switch or git checkout that switches
+# branches while keeping the local changes in the working tree that do
+# not interfere with the difference between the branches.
+
+# The below is a more-or-less exact translation to shell of the C code
+# for the default behaviour for git's push-to-checkout hook defined in
+# the push_to_deploy() function in builtin/receive-pack.c.
+#
+# Note that the hook will be executed from the repository directory,
+# not from the working tree, so if you want to perform operations on
+# the working tree, you will have to adapt your code accordingly, e.g.
+# by adding "cd .." or using relative paths.
+
+if ! git update-index -q --ignore-submodules --refresh
+then
+	die "Up-to-date check failed"
+fi
+
+if ! git diff-files --quiet --ignore-submodules --
+then
+	die "Working directory has unstaged changes"
+fi
+
+# This is a rough translation of:
+#
+#   head_has_history() ? "HEAD" : EMPTY_TREE_SHA1_HEX
+if git cat-file -e HEAD 2>/dev/null
+then
+	head=HEAD
+else
+	head=$(git hash-object -t tree --stdin </dev/null)
+fi
+
+if ! git diff-index --quiet --cached --ignore-submodules $head --
+then
+	die "Working directory has staged changes"
+fi
+
+if ! git read-tree -u -m "$commit"
+then
+	die "Could not update working tree to new HEAD"
+fi
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\sendemail-validate.sample:
+#!/bin/sh
+
+# An example hook script to validate a patch (and/or patch series) before
+# sending it via email.
+#
+# The hook should exit with non-zero status after issuing an appropriate
+# message if it wants to prevent the email(s) from being sent.
+#
+# To enable this hook, rename this file to "sendemail-validate".
+#
+# By default, it will only check that the patch(es) can be applied on top of
+# the default upstream branch without conflicts in a secondary worktree. After
+# validation (successful or not) of the last patch of a series, the worktree
+# will be deleted.
+#
+# The following config variables can be set to change the default remote and
+# remote ref that are used to apply the patches against:
+#
+#   sendemail.validateRemote (default: origin)
+#   sendemail.validateRemoteRef (default: HEAD)
+#
+# Replace the TODO placeholders with appropriate checks according to your
+# needs.
+
+validate_cover_letter () {
+	file="$1"
+	# TODO: Replace with appropriate checks (e.g. spell checking).
+	true
+}
+
+validate_patch () {
+	file="$1"
+	# Ensure that the patch applies without conflicts.
+	git am -3 "$file" || return
+	# TODO: Replace with appropriate checks for this patch
+	# (e.g. checkpatch.pl).
+	true
+}
+
+validate_series () {
+	# TODO: Replace with appropriate checks for the whole series
+	# (e.g. quick build, coding style checks, etc.).
+	true
+}
+
+# main -------------------------------------------------------------------------
+
+if test "$GIT_SENDEMAIL_FILE_COUNTER" = 1
+then
+	remote=$(git config --default origin --get sendemail.validateRemote) &&
+	ref=$(git config --default HEAD --get sendemail.validateRemoteRef) &&
+	worktree=$(mktemp --tmpdir -d sendemail-validate.XXXXXXX) &&
+	git worktree add -fd --checkout "$worktree" "refs/remotes/$remote/$ref" &&
+	git config --replace-all sendemail.validateWorktree "$worktree"
+else
+	worktree=$(git config --get sendemail.validateWorktree)
+fi || {
+	echo "sendemail-validate: error: failed to prepare worktree" >&2
+	exit 1
+}
+
+unset GIT_DIR GIT_WORK_TREE
+cd "$worktree" &&
+
+if grep -q "^diff --git " "$1"
+then
+	validate_patch "$1"
+else
+	validate_cover_letter "$1"
+fi &&
+
+if test "$GIT_SENDEMAIL_FILE_COUNTER" = "$GIT_SENDEMAIL_FILE_TOTAL"
+then
+	git config --unset-all sendemail.validateWorktree &&
+	trap 'git worktree remove -ff "$worktree"' EXIT &&
+	validate_series
+fi
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\update.sample:
+#!/bin/sh
+#
+# An example hook script to block unannotated tags from entering.
+# Called by "git receive-pack" with arguments: refname sha1-old sha1-new
+#
+# To enable this hook, rename this file to "update".
+#
+# Config
+# ------
+# hooks.allowunannotated
+#   This boolean sets whether unannotated tags will be allowed into the
+#   repository.  By default they won't be.
+# hooks.allowdeletetag
+#   This boolean sets whether deleting tags will be allowed in the
+#   repository.  By default they won't be.
+# hooks.allowmodifytag
+#   This boolean sets whether a tag may be modified after creation. By default
+#   it won't be.
+# hooks.allowdeletebranch
+#   This boolean sets whether deleting branches will be allowed in the
+#   repository.  By default they won't be.
+# hooks.denycreatebranch
+#   This boolean sets whether remotely creating branches will be denied
+#   in the repository.  By default this is allowed.
+#
+
+# --- Command line
+refname="$1"
+oldrev="$2"
+newrev="$3"
+
+# --- Safety check
+if [ -z "$GIT_DIR" ]; then
+	echo "Don't run this script from the command line." >&2
+	echo " (if you want, you could supply GIT_DIR then run" >&2
+	echo "  $0 <ref> <oldrev> <newrev>)" >&2
+	exit 1
+fi
+
+if [ -z "$refname" -o -z "$oldrev" -o -z "$newrev" ]; then
+	echo "usage: $0 <ref> <oldrev> <newrev>" >&2
+	exit 1
+fi
+
+# --- Config
+allowunannotated=$(git config --type=bool hooks.allowunannotated)
+allowdeletebranch=$(git config --type=bool hooks.allowdeletebranch)
+denycreatebranch=$(git config --type=bool hooks.denycreatebranch)
+allowdeletetag=$(git config --type=bool hooks.allowdeletetag)
+allowmodifytag=$(git config --type=bool hooks.allowmodifytag)
+
+# check for no description
+projectdesc=$(sed -e '1q' "$GIT_DIR/description")
+case "$projectdesc" in
+"Unnamed repository"* | "")
+	echo "*** Project description file hasn't been set" >&2
+	exit 1
+	;;
+esac
+
+# --- Check types
+# if $newrev is 0000...0000, it's a commit to delete a ref.
+zero=$(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0')
+if [ "$newrev" = "$zero" ]; then
+	newrev_type=delete
+else
+	newrev_type=$(git cat-file -t $newrev)
+fi
+
+case "$refname","$newrev_type" in
+	refs/tags/*,commit)
+		# un-annotated tag
+		short_refname=${refname##refs/tags/}
+		if [ "$allowunannotated" != "true" ]; then
+			echo "*** The un-annotated tag, $short_refname, is not allowed in this repository" >&2
+			echo "*** Use 'git tag [ -a | -s ]' for tags you want to propagate." >&2
+			exit 1
+		fi
+		;;
+	refs/tags/*,delete)
+		# delete tag
+		if [ "$allowdeletetag" != "true" ]; then
+			echo "*** Deleting a tag is not allowed in this repository" >&2
+			exit 1
+		fi
+		;;
+	refs/tags/*,tag)
+		# annotated tag
+		if [ "$allowmodifytag" != "true" ] && git rev-parse $refname > /dev/null 2>&1
+		then
+			echo "*** Tag '$refname' already exists." >&2
+			echo "*** Modifying a tag is not allowed in this repository." >&2
+			exit 1
+		fi
+		;;
+	refs/heads/*,commit)
+		# branch
+		if [ "$oldrev" = "$zero" -a "$denycreatebranch" = "true" ]; then
+			echo "*** Creating a branch is not allowed in this repository" >&2
+			exit 1
+		fi
+		;;
+	refs/heads/*,delete)
+		# delete branch
+		if [ "$allowdeletebranch" != "true" ]; then
+			echo "*** Deleting a branch is not allowed in this repository" >&2
+			exit 1
+		fi
+		;;
+	refs/remotes/*,commit)
+		# tracking branch
+		;;
+	refs/remotes/*,delete)
+		# delete tracking branch
+		if [ "$allowdeletebranch" != "true" ]; then
+			echo "*** Deleting a tracking branch is not allowed in this repository" >&2
+			exit 1
+		fi
+		;;
+	*)
+		# Anything else (is there anything else?)
+		echo "*** Update hook: unknown type of update to ref $refname of type $newrev_type" >&2
+		exit 1
+		;;
+esac
+
+# --- Finished
+exit 0
+
+
+Содержимое D:\structurizer\structurizer\.git\info\exclude:
+# git ls-files --others --exclude-from=.git/info/exclude
+# Lines that start with '#' are comments.
+# For a project mostly in C, the following would be a good set of
+# exclude patterns (uncomment them if you want to use them):
+# *.[oa]
+# *~
+
+
+Содержимое D:\structurizer\structurizer\.git\logs\HEAD:
+0000000000000000000000000000000000000000 39eed801c68e09643085ebee1640ee5d05013043 Qwerty000101 <andreyiv20005@gmail.com> 1767373300 +0300	clone: from https://github.com/Qwerty000101/structurizer.git
+39eed801c68e09643085ebee1640ee5d05013043 e6df4435325067fba0077889f80ceecf88345e6a Qwerty000101 <andreyiv20005@gmail.com> 1767392236 +0300	commit: Add new functions
+
+
+Содержимое D:\structurizer\structurizer\.git\logs\refs\heads\main:
+0000000000000000000000000000000000000000 39eed801c68e09643085ebee1640ee5d05013043 Qwerty000101 <andreyiv20005@gmail.com> 1767373300 +0300	clone: from https://github.com/Qwerty000101/structurizer.git
+39eed801c68e09643085ebee1640ee5d05013043 e6df4435325067fba0077889f80ceecf88345e6a Qwerty000101 <andreyiv20005@gmail.com> 1767392236 +0300	commit: Add new functions
+
+
+Содержимое D:\structurizer\structurizer\.git\logs\refs\remotes\origin\HEAD:
+0000000000000000000000000000000000000000 39eed801c68e09643085ebee1640ee5d05013043 Qwerty000101 <andreyiv20005@gmail.com> 1767373300 +0300	clone: from https://github.com/Qwerty000101/structurizer.git
+
+
+Содержимое D:\structurizer\structurizer\.git\logs\refs\remotes\origin\main:
+39eed801c68e09643085ebee1640ee5d05013043 e6df4435325067fba0077889f80ceecf88345e6a Qwerty000101 <andreyiv20005@gmail.com> 1767392241 +0300	update by push
+
+
+Содержимое D:\structurizer\structurizer\.git\objects\14\347fade93dd2d8328c8c9f4449e1134b6ef3a4:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\19\4093dbac047573d96e7e834ecb896d094ae2d9:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\22\a24b43955f9c7aef78fcc838dcd2b24afe695a:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\3c\1489fda57dd0fa41b7dd78c6635678682117f1:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\41\93700039dfbc77cd17733b026418db135ce1b8:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\45\168a00fae81ee83507ee35552db3ec77932864:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\47\aa816b16c4a9c1e30f08bdcb44318a12f49c76:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\5c\e52d4188c46c90b1dfe0c2ed16fd16d398ae3d:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\5d\80fb936916043dc4d72751abaf1e9d56d0a995:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\68\1a64a31439263be3e3e446095dc69f50c96c70:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\92\33020c92037746e1cad8a79659e724f0c14e71:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\94\174eb1f1354543f2e4f22d409f11aa47d2c604:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\a6\a04d9f78235fad78da129b127753df6a183fc4:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\a7\7d57055ab5322b1f28fcd36548e1d2ae9fd679:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\c6\e0f4590348bf21a914d47390158c9760f014bb:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\ca\28793b582847ebdedf926dabeeb9aa67635899:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\ce\31163dd5fd4b54c9f268d808daa466b0f419a7:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\e6\9de29bb2d1d6434b8b29ae775ad8c2e48c5391:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\e6\df4435325067fba0077889f80ceecf88345e6a:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\pack\pack-696e5f00ad532ef391262a4d3e356026271e3448.idx:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\pack\pack-696e5f00ad532ef391262a4d3e356026271e3448.pack:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\pack\pack-696e5f00ad532ef391262a4d3e356026271e3448.rev:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\refs\heads\main:
+e6df4435325067fba0077889f80ceecf88345e6a
+
+
+Содержимое D:\structurizer\structurizer\.git\refs\remotes\origin\HEAD:
+ref: refs/remotes/origin/main
+
+
+Содержимое D:\structurizer\structurizer\.git\refs\remotes\origin\main:
+e6df4435325067fba0077889f80ceecf88345e6a
+
+
+Содержимое D:\structurizer\structurizer\analyzer\project_analyzer.py:
+import os
+from pathlib import Path
+from typing import Iterable, Optional, Set
+
+
+class ProjectAnalyzer:
+    def __init__(
+        self,
+        root_dir: Path,
+        output_file: Path,
+        ignored_dirs: Optional[Iterable[str]] = None,
+        ignored_files: Optional[Iterable[str]] = None,
+        allowed_extensions: Optional[Iterable[str]] = None,
+    ):
+        self.root_dir: Path = Path(root_dir).resolve()
+        self.output_file: Path = Path(output_file).resolve()
+
+        if not self.root_dir.exists() or not self.root_dir.is_dir():
+            raise ValueError(f"Корневая директория не существует: {self.root_dir}")
+
+        self.ignored_dirs: Set[str] = set(ignored_dirs or [])
+        self.ignored_files: Set[str] = set(ignored_files or [])
+        self.allowed_extensions: Set[str] = set(
+            ext.lower() for ext in (allowed_extensions or [])
+        )
+
+        self._file = None
+
+    # =====================
+    # Публичный API
+    # =====================
+
+    def run(self) -> None:
+        """
+        Запускает анализ проекта и записывает результат в output_file.
+        """
+        self.output_file.parent.mkdir(parents=True, exist_ok=True)
+
+        with open(self.output_file, "w", encoding="utf-8") as f:
+            self._file = f
+
+            self._write(f"Анализ проекта: {self.root_dir}\n\n")
+            self._write("Структура проекта:\n")
+            self._print_project_structure(self.root_dir)
+            self._write("\nТекст из файлов проекта:\n")
+            self._print_file_contents(self.root_dir)
+            self._write(
+                f"\nАнализ завершен. Результаты сохранены в {self.output_file}\n"
+            )
+
+            self._file = None
+
+    # =====================
+    # Внутренняя логика
+    # =====================
+
+    def _write(self, text: str) -> None:
+        self._file.write(text)
+
+    def _print_project_structure(
+        self, current_dir: Path, indent: str = "", is_last: bool = True
+    ) -> None:
+        relative_path = current_dir.relative_to(self.root_dir)
+        display_name = (
+            self.root_dir.name if relative_path == Path(".") else current_dir.name
+        )
+
+        branch = "└── " if is_last else "├── "
+        self._write(f"{indent}{branch}{display_name}\n")
+
+        indent += "    " if is_last else "│   "
+
+        try:
+            items = sorted(current_dir.iterdir(), key=lambda p: p.name.lower())
+        except (PermissionError, FileNotFoundError):
+            self._write(f"{indent}└── <нет доступа>\n")
+            return
+
+        dirs = [
+            p
+            for p in items
+            if p.is_dir() and p.name not in self.ignored_dirs
+        ]
+
+        files = [
+            p
+            for p in items
+            if p.is_file() and p.name not in self.ignored_files
+        ]
+
+        for i, dir_path in enumerate(dirs):
+            is_last_dir = (i == len(dirs) - 1) and not files
+            self._print_project_structure(dir_path, indent, is_last_dir)
+
+        for i, file_path in enumerate(files):
+            is_last_file = i == len(files) - 1
+            branch = "└── " if is_last_file else "├── "
+            self._write(f"{indent}{branch}{file_path.name}\n")
+
+    def _print_file_contents(self, root_dir: Path) -> None:
+        for root, dirs, files in os.walk(root_dir):
+            root_path = Path(root)
+
+            dirs[:] = [
+                d for d in dirs
+                if d not in self.ignored_dirs
+                and (root_path / d).resolve().is_relative_to(self.root_dir)
+            ]
+
+            files[:] = [
+                f for f in files
+                if f not in self.ignored_files
+                and (root_path / f).resolve().is_relative_to(self.root_dir)
+            ]
+
+            for filename in files:
+                file_path = root_path / filename
+                file_ext = file_path.suffix.lower()
+
+                if self.allowed_extensions and file_ext not in self.allowed_extensions:
+                    continue
+
+                try:
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        content = f.read()
+                    self._write(f"\nСодержимое {file_path}:\n{content}\n")
+                except UnicodeDecodeError:
+                    self._write(
+                        f"\nСодержимое {file_path}:\n<бинарный или нечитаемый файл>\n"
+                    )
+                except Exception as e:
+                    self._write(
+                        f"\nОшибка при чтении {file_path}: {e}\n"
+                    )
+
+
+Содержимое D:\structurizer\structurizer\analyzer\__init__.py:
+
+
+Содержимое D:\structurizer\structurizer\analyzer\__pycache__\project_analyzer.cpython-311.pyc:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\analyzer\__pycache__\__init__.cpython-311.pyc:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\storage\history.json:
+{
+  "version": 1,
+  "items": []
+}
+
+Содержимое D:\structurizer\structurizer\storage\history_manager.py:
+import json
+import uuid
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List, Optional
+
+
+class HistoryEntry:
+    def __init__(self, project_path: Path, output_file: Path):
+        self.project_path = project_path
+        self.output_file = output_file
+
+    def __str__(self):
+        return str(self.project_path)
+    
+class HistoryManager:
+    HISTORY_VERSION = 1
+
+    def __init__(self, base_dir: Path):
+        """
+        base_dir — папка storage/
+        """
+        self.base_dir = Path(base_dir).resolve()
+        self.outputs_dir = self.base_dir / "outputs"
+        self.history_file = self.base_dir / "history.json"
+        
+        self.base_dir.mkdir(parents=True, exist_ok=True)
+        self.outputs_dir.mkdir(parents=True, exist_ok=True)
+
+        if not self.history_file.exists():
+            self._write_history({
+                "version": self.HISTORY_VERSION,
+                "items": []
+            })
+
+    # =====================
+    # Публичный API
+    # =====================
+
+    def load(self) -> List[Dict]:
+        """
+        Загружает и возвращает список элементов истории.
+        """
+        data = self._read_history()
+        return data.get("items", [])
+
+    def add(
+        self,
+        project_path: Path,
+        output_file: Path,
+        settings: Dict
+    ) -> Dict:
+        """
+        Добавляет новую запись в историю и возвращает её.
+        """
+        data = self._read_history()
+
+        item = {
+            "id": uuid.uuid4().hex[:8],
+            "project_path": str(project_path),
+            "output_file": str(output_file),
+            "created_at": datetime.now().isoformat(timespec="seconds"),
+            "settings": settings,
+        }
+
+        data["items"].append(item)
+        self._write_history(data)
+
+        return item
+    def get_all(self) -> List[Dict]:
+        """
+        Возвращает все сохранённые элементы истории.
+        """
+        return self.load()
+    
+
+    def remove(self, item_id: str, delete_output: bool = True) -> bool:
+        """
+        Удаляет запись по id.
+        Если delete_output=True — удаляет и файл результата.
+        """
+        data = self._read_history()
+        items = data.get("items", [])
+
+        item = next((i for i in items if i["id"] == item_id), None)
+        if not item:
+            return False
+
+        if delete_output:
+            output_path = Path(item["output_file"])
+            try:
+                if output_path.exists():
+                    output_path.unlink()
+            except Exception:
+                # Файл мог быть удалён вручную — это не критично
+                pass
+
+        data["items"] = [i for i in items if i["id"] != item_id]
+        self._write_history(data)
+
+        return True
+
+    def get(self, item_id: str) -> Optional[Dict]:
+        """
+        Возвращает одну запись по id.
+        """
+        items = self.load()
+        return next((i for i in items if i["id"] == item_id), None)
+
+    # =====================
+    # Внутренние методы
+    # =====================
+
+    def _read_history(self) -> Dict:
+        try:
+            with open(self.history_file, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except (json.JSONDecodeError, FileNotFoundError):
+            # Восстановление при повреждённом файле
+            data = {
+                "version": self.HISTORY_VERSION,
+                "items": []
+            }
+            self._write_history(data)
+            return data
+
+    def _write_history(self, data: Dict) -> None:
+        with open(self.history_file, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+Содержимое D:\structurizer\structurizer\storage\__init__.py:
+
+
+Содержимое D:\structurizer\structurizer\storage\outputs\history.json:
+{
+  "version": 1,
+  "items": []
+}
+
+Содержимое D:\structurizer\structurizer\storage\outputs\structurizer_20260103_012751.txt:
+Анализ проекта: D:\structurizer\structurizer
+
+Структура проекта:
+└── structurizer
+    ├── .git
+    │   ├── hooks
+    │   │   ├── applypatch-msg.sample
+    │   │   ├── commit-msg.sample
+    │   │   ├── fsmonitor-watchman.sample
+    │   │   ├── post-update.sample
+    │   │   ├── pre-applypatch.sample
+    │   │   ├── pre-commit.sample
+    │   │   ├── pre-merge-commit.sample
+    │   │   ├── pre-push.sample
+    │   │   ├── pre-rebase.sample
+    │   │   ├── pre-receive.sample
+    │   │   ├── prepare-commit-msg.sample
+    │   │   ├── push-to-checkout.sample
+    │   │   ├── sendemail-validate.sample
+    │   │   └── update.sample
+    │   ├── info
+    │   │   └── exclude
+    │   ├── logs
+    │   │   ├── refs
+    │   │   │   ├── heads
+    │   │   │   │   └── main
+    │   │   │   └── remotes
+    │   │   │       └── origin
+    │   │   │           ├── HEAD
+    │   │   │           └── main
+    │   │   └── HEAD
+    │   ├── objects
+    │   │   ├── 14
+    │   │   │   └── 347fade93dd2d8328c8c9f4449e1134b6ef3a4
+    │   │   ├── 19
+    │   │   │   └── 4093dbac047573d96e7e834ecb896d094ae2d9
+    │   │   ├── 22
+    │   │   │   └── a24b43955f9c7aef78fcc838dcd2b24afe695a
+    │   │   ├── 3c
+    │   │   │   └── 1489fda57dd0fa41b7dd78c6635678682117f1
+    │   │   ├── 41
+    │   │   │   └── 93700039dfbc77cd17733b026418db135ce1b8
+    │   │   ├── 45
+    │   │   │   └── 168a00fae81ee83507ee35552db3ec77932864
+    │   │   ├── 47
+    │   │   │   └── aa816b16c4a9c1e30f08bdcb44318a12f49c76
+    │   │   ├── 5c
+    │   │   │   └── e52d4188c46c90b1dfe0c2ed16fd16d398ae3d
+    │   │   ├── 5d
+    │   │   │   └── 80fb936916043dc4d72751abaf1e9d56d0a995
+    │   │   ├── 68
+    │   │   │   └── 1a64a31439263be3e3e446095dc69f50c96c70
+    │   │   ├── 92
+    │   │   │   └── 33020c92037746e1cad8a79659e724f0c14e71
+    │   │   ├── 94
+    │   │   │   └── 174eb1f1354543f2e4f22d409f11aa47d2c604
+    │   │   ├── a6
+    │   │   │   └── a04d9f78235fad78da129b127753df6a183fc4
+    │   │   ├── a7
+    │   │   │   └── 7d57055ab5322b1f28fcd36548e1d2ae9fd679
+    │   │   ├── c6
+    │   │   │   └── e0f4590348bf21a914d47390158c9760f014bb
+    │   │   ├── ca
+    │   │   │   └── 28793b582847ebdedf926dabeeb9aa67635899
+    │   │   ├── ce
+    │   │   │   └── 31163dd5fd4b54c9f268d808daa466b0f419a7
+    │   │   ├── e6
+    │   │   │   ├── 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+    │   │   │   └── df4435325067fba0077889f80ceecf88345e6a
+    │   │   ├── info
+    │   │   └── pack
+    │   │       ├── pack-696e5f00ad532ef391262a4d3e356026271e3448.idx
+    │   │       ├── pack-696e5f00ad532ef391262a4d3e356026271e3448.pack
+    │   │       └── pack-696e5f00ad532ef391262a4d3e356026271e3448.rev
+    │   ├── refs
+    │   │   ├── heads
+    │   │   │   └── main
+    │   │   ├── remotes
+    │   │   │   └── origin
+    │   │   │       ├── HEAD
+    │   │   │       └── main
+    │   │   └── tags
+    │   ├── COMMIT_EDITMSG
+    │   ├── config
+    │   ├── description
+    │   ├── HEAD
+    │   ├── index
+    │   └── packed-refs
+    ├── __pycache__
+    │   ├── __init__.cpython-311.pyc
+    │   ├── __init__.cpython-312.pyc
+    │   ├── app.cpython-311.pyc
+    │   ├── app.cpython-312.pyc
+    │   └── struct.cpython-311.pyc
+    ├── analyzer
+    │   ├── __pycache__
+    │   │   ├── __init__.cpython-311.pyc
+    │   │   └── project_analyzer.cpython-311.pyc
+    │   ├── __init__.py
+    │   └── project_analyzer.py
+    ├── storage
+    │   ├── __pycache__
+    │   │   ├── __init__.cpython-311.pyc
+    │   │   └── history_manager.cpython-311.pyc
+    │   ├── outputs
+    │   │   ├── history.json
+    │   │   └── structurizer_20260103_012751.txt
+    │   ├── __init__.py
+    │   ├── history.json
+    │   └── history_manager.py
+    ├── test
+    │   ├── analyzer
+    │   │   ├── __pycache__
+    │   │   │   └── project_analyzer.cpython-311.pyc
+    │   │   └── project_analyzer.py
+    │   ├── storage
+    │   │   ├── __pycache__
+    │   │   │   └── history_manager.cpython-311.pyc
+    │   │   ├── outputs
+    │   │   ├── history.json
+    │   │   └── history_manager.py
+    │   ├── test.py
+    │   └── test_history.py
+    ├── ui
+    │   ├── __pycache__
+    │   │   ├── __init__.cpython-311.pyc
+    │   │   └── main_window.cpython-311.pyc
+    │   ├── __init__.py
+    │   └── main_window.py
+    ├── .gitignore
+    ├── __init__.py
+    ├── app.py
+    ├── LICENSE
+    └── README.md
+
+Текст из файлов проекта:
+
+Содержимое D:\structurizer\structurizer\.gitignore:
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[codz]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py.cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+#   For a library or package, you might want to ignore these files since the code is
+#   intended to run in multiple environments; otherwise, check them in:
+# .python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# UV
+#   Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control.
+#   This is especially recommended for binary packages to ensure reproducibility, and is more
+#   commonly ignored for libraries.
+#uv.lock
+
+# poetry
+#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
+#   This is especially recommended for binary packages to ensure reproducibility, and is more
+#   commonly ignored for libraries.
+#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
+#poetry.lock
+#poetry.toml
+
+# pdm
+#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
+#   pdm recommends including project-wide configuration in pdm.toml, but excluding .pdm-python.
+#   https://pdm-project.org/en/latest/usage/project/#working-with-version-control
+#pdm.lock
+#pdm.toml
+.pdm-python
+.pdm-build/
+
+# pixi
+#   Similar to Pipfile.lock, it is generally recommended to include pixi.lock in version control.
+#pixi.lock
+#   Pixi creates a virtual environment in the .pixi directory, just like venv module creates one
+#   in the .venv directory. It is recommended not to include this directory in version control.
+.pixi
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.envrc
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PyCharm
+#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
+#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
+#  and can be added to the global gitignore or merged into this file.  For a more nuclear
+#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
+#.idea/
+
+# Abstra
+# Abstra is an AI-powered process automation framework.
+# Ignore directories containing user credentials, local state, and settings.
+# Learn more at https://abstra.io/docs
+.abstra/
+
+# Visual Studio Code
+#  Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore 
+#  that can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
+#  and can be added to the global gitignore or merged into this file. However, if you prefer, 
+#  you could uncomment the following to ignore the entire vscode folder
+# .vscode/
+
+# Ruff stuff:
+.ruff_cache/
+
+# PyPI configuration file
+.pypirc
+
+# Cursor
+#  Cursor is an AI-powered code editor. `.cursorignore` specifies files/directories to
+#  exclude from AI features like autocomplete and code analysis. Recommended for sensitive data
+#  refer to https://docs.cursor.com/context/ignore-files
+.cursorignore
+.cursorindexingignore
+
+# Marimo
+marimo/_static/
+marimo/_lsp/
+__marimo__/
+
+
+Содержимое D:\structurizer\structurizer\app.py:
+import sys
+from PySide6.QtWidgets import QApplication
+from structurizer.ui.main_window import MainWindow
+
+
+def main():
+    app = QApplication(sys.argv)
+
+    window = MainWindow()
+    window.show()
+
+    sys.exit(app.exec())
+
+
+if __name__ == "__main__":
+    main()
+
+
+Содержимое D:\structurizer\structurizer\LICENSE:
+MIT License
+
+Copyright (c) 2026 Qwerty000101
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+Содержимое D:\structurizer\structurizer\README.md:
+# structurizer
+Приложение, составляющее текстовый файл, содержащий древовидную структуру папок и файлов в выбранной директории, а также код из файлов с выбранными расширениями. 
+
+
+Содержимое D:\structurizer\structurizer\__init__.py:
+
+
+Содержимое D:\structurizer\structurizer\.git\COMMIT_EDITMSG:
+Add new functions
+
+
+Содержимое D:\structurizer\structurizer\.git\config:
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+[remote "origin"]
+	url = https://github.com/Qwerty000101/structurizer.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+
+
+Содержимое D:\structurizer\structurizer\.git\description:
+Unnamed repository; edit this file 'description' to name the repository.
+
+
+Содержимое D:\structurizer\structurizer\.git\HEAD:
+ref: refs/heads/main
+
+
+Содержимое D:\structurizer\structurizer\.git\index:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\packed-refs:
+# pack-refs with: peeled fully-peeled sorted 
+39eed801c68e09643085ebee1640ee5d05013043 refs/remotes/origin/main
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\applypatch-msg.sample:
+#!/bin/sh
+#
+# An example hook script to check the commit log message taken by
+# applypatch from an e-mail message.
+#
+# The hook should exit with non-zero status after issuing an
+# appropriate message if it wants to stop the commit.  The hook is
+# allowed to edit the commit message file.
+#
+# To enable this hook, rename this file to "applypatch-msg".
+
+. git-sh-setup
+commitmsg="$(git rev-parse --git-path hooks/commit-msg)"
+test -x "$commitmsg" && exec "$commitmsg" ${1+"$@"}
+:
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\commit-msg.sample:
+#!/bin/sh
+#
+# An example hook script to check the commit log message.
+# Called by "git commit" with one argument, the name of the file
+# that has the commit message.  The hook should exit with non-zero
+# status after issuing an appropriate message if it wants to stop the
+# commit.  The hook is allowed to edit the commit message file.
+#
+# To enable this hook, rename this file to "commit-msg".
+
+# Uncomment the below to add a Signed-off-by line to the message.
+# Doing this in a hook is a bad idea in general, but the prepare-commit-msg
+# hook is more suited to it.
+#
+# SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+# grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
+
+# This example catches duplicate Signed-off-by lines.
+
+test "" = "$(grep '^Signed-off-by: ' "$1" |
+	 sort | uniq -c | sed -e '/^[ 	]*1[ 	]/d')" || {
+	echo >&2 Duplicate Signed-off-by lines.
+	exit 1
+}
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\fsmonitor-watchman.sample:
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use IPC::Open2;
+
+# An example hook script to integrate Watchman
+# (https://facebook.github.io/watchman/) with git to speed up detecting
+# new and modified files.
+#
+# The hook is passed a version (currently 2) and last update token
+# formatted as a string and outputs to stdout a new update token and
+# all files that have been modified since the update token. Paths must
+# be relative to the root of the working tree and separated by a single NUL.
+#
+# To enable this hook, rename this file to "query-watchman" and set
+# 'git config core.fsmonitor .git/hooks/query-watchman'
+#
+my ($version, $last_update_token) = @ARGV;
+
+# Uncomment for debugging
+# print STDERR "$0 $version $last_update_token\n";
+
+# Check the hook interface version
+if ($version ne 2) {
+	die "Unsupported query-fsmonitor hook version '$version'.\n" .
+	    "Falling back to scanning...\n";
+}
+
+my $git_work_tree = get_working_dir();
+
+my $retry = 1;
+
+my $json_pkg;
+eval {
+	require JSON::XS;
+	$json_pkg = "JSON::XS";
+	1;
+} or do {
+	require JSON::PP;
+	$json_pkg = "JSON::PP";
+};
+
+launch_watchman();
+
+sub launch_watchman {
+	my $o = watchman_query();
+	if (is_work_tree_watched($o)) {
+		output_result($o->{clock}, @{$o->{files}});
+	}
+}
+
+sub output_result {
+	my ($clockid, @files) = @_;
+
+	# Uncomment for debugging watchman output
+	# open (my $fh, ">", ".git/watchman-output.out");
+	# binmode $fh, ":utf8";
+	# print $fh "$clockid\n@files\n";
+	# close $fh;
+
+	binmode STDOUT, ":utf8";
+	print $clockid;
+	print "\0";
+	local $, = "\0";
+	print @files;
+}
+
+sub watchman_clock {
+	my $response = qx/watchman clock "$git_work_tree"/;
+	die "Failed to get clock id on '$git_work_tree'.\n" .
+		"Falling back to scanning...\n" if $? != 0;
+
+	return $json_pkg->new->utf8->decode($response);
+}
+
+sub watchman_query {
+	my $pid = open2(\*CHLD_OUT, \*CHLD_IN, 'watchman -j --no-pretty')
+	or die "open2() failed: $!\n" .
+	"Falling back to scanning...\n";
+
+	# In the query expression below we're asking for names of files that
+	# changed since $last_update_token but not from the .git folder.
+	#
+	# To accomplish this, we're using the "since" generator to use the
+	# recency index to select candidate nodes and "fields" to limit the
+	# output to file names only. Then we're using the "expression" term to
+	# further constrain the results.
+	my $last_update_line = "";
+	if (substr($last_update_token, 0, 1) eq "c") {
+		$last_update_token = "\"$last_update_token\"";
+		$last_update_line = qq[\n"since": $last_update_token,];
+	}
+	my $query = <<"	END";
+		["query", "$git_work_tree", {$last_update_line
+			"fields": ["name"],
+			"expression": ["not", ["dirname", ".git"]]
+		}]
+	END
+
+	# Uncomment for debugging the watchman query
+	# open (my $fh, ">", ".git/watchman-query.json");
+	# print $fh $query;
+	# close $fh;
+
+	print CHLD_IN $query;
+	close CHLD_IN;
+	my $response = do {local $/; <CHLD_OUT>};
+
+	# Uncomment for debugging the watch response
+	# open ($fh, ">", ".git/watchman-response.json");
+	# print $fh $response;
+	# close $fh;
+
+	die "Watchman: command returned no output.\n" .
+	"Falling back to scanning...\n" if $response eq "";
+	die "Watchman: command returned invalid output: $response\n" .
+	"Falling back to scanning...\n" unless $response =~ /^\{/;
+
+	return $json_pkg->new->utf8->decode($response);
+}
+
+sub is_work_tree_watched {
+	my ($output) = @_;
+	my $error = $output->{error};
+	if ($retry > 0 and $error and $error =~ m/unable to resolve root .* directory (.*) is not watched/) {
+		$retry--;
+		my $response = qx/watchman watch "$git_work_tree"/;
+		die "Failed to make watchman watch '$git_work_tree'.\n" .
+		    "Falling back to scanning...\n" if $? != 0;
+		$output = $json_pkg->new->utf8->decode($response);
+		$error = $output->{error};
+		die "Watchman: $error.\n" .
+		"Falling back to scanning...\n" if $error;
+
+		# Uncomment for debugging watchman output
+		# open (my $fh, ">", ".git/watchman-output.out");
+		# close $fh;
+
+		# Watchman will always return all files on the first query so
+		# return the fast "everything is dirty" flag to git and do the
+		# Watchman query just to get it over with now so we won't pay
+		# the cost in git to look up each individual file.
+		my $o = watchman_clock();
+		$error = $output->{error};
+
+		die "Watchman: $error.\n" .
+		"Falling back to scanning...\n" if $error;
+
+		output_result($o->{clock}, ("/"));
+		$last_update_token = $o->{clock};
+
+		eval { launch_watchman() };
+		return 0;
+	}
+
+	die "Watchman: $error.\n" .
+	"Falling back to scanning...\n" if $error;
+
+	return 1;
+}
+
+sub get_working_dir {
+	my $working_dir;
+	if ($^O =~ 'msys' || $^O =~ 'cygwin') {
+		$working_dir = Win32::GetCwd();
+		$working_dir =~ tr/\\/\//;
+	} else {
+		require Cwd;
+		$working_dir = Cwd::cwd();
+	}
+
+	return $working_dir;
+}
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\post-update.sample:
+#!/bin/sh
+#
+# An example hook script to prepare a packed repository for use over
+# dumb transports.
+#
+# To enable this hook, rename this file to "post-update".
+
+exec git update-server-info
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\pre-applypatch.sample:
+#!/bin/sh
+#
+# An example hook script to verify what is about to be committed
+# by applypatch from an e-mail message.
+#
+# The hook should exit with non-zero status after issuing an
+# appropriate message if it wants to stop the commit.
+#
+# To enable this hook, rename this file to "pre-applypatch".
+
+. git-sh-setup
+precommit="$(git rev-parse --git-path hooks/pre-commit)"
+test -x "$precommit" && exec "$precommit" ${1+"$@"}
+:
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\pre-commit.sample:
+#!/bin/sh
+#
+# An example hook script to verify what is about to be committed.
+# Called by "git commit" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+#
+# To enable this hook, rename this file to "pre-commit".
+
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+	against=HEAD
+else
+	# Initial commit: diff against an empty tree object
+	against=$(git hash-object -t tree /dev/null)
+fi
+
+# If you want to allow non-ASCII filenames set this variable to true.
+allownonascii=$(git config --type=bool hooks.allownonascii)
+
+# Redirect output to stderr.
+exec 1>&2
+
+# Cross platform projects tend to avoid non-ASCII filenames; prevent
+# them from being added to the repository. We exploit the fact that the
+# printable range starts at the space character and ends with tilde.
+if [ "$allownonascii" != "true" ] &&
+	# Note that the use of brackets around a tr range is ok here, (it's
+	# even required, for portability to Solaris 10's /usr/bin/tr), since
+	# the square bracket bytes happen to fall in the designated range.
+	test $(git diff --cached --name-only --diff-filter=A -z $against |
+	  LC_ALL=C tr -d '[ -~]\0' | wc -c) != 0
+then
+	cat <<\EOF
+Error: Attempt to add a non-ASCII file name.
+
+This can cause problems if you want to work with people on other platforms.
+
+To be portable it is advisable to rename the file.
+
+If you know what you are doing you can disable this check using:
+
+  git config hooks.allownonascii true
+EOF
+	exit 1
+fi
+
+# If there are whitespace errors, print the offending file names and fail.
+exec git diff-index --check --cached $against --
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\pre-merge-commit.sample:
+#!/bin/sh
+#
+# An example hook script to verify what is about to be committed.
+# Called by "git merge" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message to
+# stderr if it wants to stop the merge commit.
+#
+# To enable this hook, rename this file to "pre-merge-commit".
+
+. git-sh-setup
+test -x "$GIT_DIR/hooks/pre-commit" &&
+        exec "$GIT_DIR/hooks/pre-commit"
+:
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\pre-push.sample:
+#!/bin/sh
+
+# An example hook script to verify what is about to be pushed.  Called by "git
+# push" after it has checked the remote status, but before anything has been
+# pushed.  If this script exits with a non-zero status nothing will be pushed.
+#
+# This hook is called with the following parameters:
+#
+# $1 -- Name of the remote to which the push is being done
+# $2 -- URL to which the push is being done
+#
+# If pushing without using a named remote those arguments will be equal.
+#
+# Information about the commits which are being pushed is supplied as lines to
+# the standard input in the form:
+#
+#   <local ref> <local oid> <remote ref> <remote oid>
+#
+# This sample shows how to prevent push of commits where the log message starts
+# with "WIP" (work in progress).
+
+remote="$1"
+url="$2"
+
+zero=$(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0')
+
+while read local_ref local_oid remote_ref remote_oid
+do
+	if test "$local_oid" = "$zero"
+	then
+		# Handle delete
+		:
+	else
+		if test "$remote_oid" = "$zero"
+		then
+			# New branch, examine all commits
+			range="$local_oid"
+		else
+			# Update to existing branch, examine new commits
+			range="$remote_oid..$local_oid"
+		fi
+
+		# Check for WIP commit
+		commit=$(git rev-list -n 1 --grep '^WIP' "$range")
+		if test -n "$commit"
+		then
+			echo >&2 "Found WIP commit in $local_ref, not pushing"
+			exit 1
+		fi
+	fi
+done
+
+exit 0
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\pre-rebase.sample:
+#!/bin/sh
+#
+# Copyright (c) 2006, 2008 Junio C Hamano
+#
+# The "pre-rebase" hook is run just before "git rebase" starts doing
+# its job, and can prevent the command from running by exiting with
+# non-zero status.
+#
+# The hook is called with the following parameters:
+#
+# $1 -- the upstream the series was forked from.
+# $2 -- the branch being rebased (or empty when rebasing the current branch).
+#
+# This sample shows how to prevent topic branches that are already
+# merged to 'next' branch from getting rebased, because allowing it
+# would result in rebasing already published history.
+
+publish=next
+basebranch="$1"
+if test "$#" = 2
+then
+	topic="refs/heads/$2"
+else
+	topic=`git symbolic-ref HEAD` ||
+	exit 0 ;# we do not interrupt rebasing detached HEAD
+fi
+
+case "$topic" in
+refs/heads/??/*)
+	;;
+*)
+	exit 0 ;# we do not interrupt others.
+	;;
+esac
+
+# Now we are dealing with a topic branch being rebased
+# on top of master.  Is it OK to rebase it?
+
+# Does the topic really exist?
+git show-ref -q "$topic" || {
+	echo >&2 "No such branch $topic"
+	exit 1
+}
+
+# Is topic fully merged to master?
+not_in_master=`git rev-list --pretty=oneline ^master "$topic"`
+if test -z "$not_in_master"
+then
+	echo >&2 "$topic is fully merged to master; better remove it."
+	exit 1 ;# we could allow it, but there is no point.
+fi
+
+# Is topic ever merged to next?  If so you should not be rebasing it.
+only_next_1=`git rev-list ^master "^$topic" ${publish} | sort`
+only_next_2=`git rev-list ^master           ${publish} | sort`
+if test "$only_next_1" = "$only_next_2"
+then
+	not_in_topic=`git rev-list "^$topic" master`
+	if test -z "$not_in_topic"
+	then
+		echo >&2 "$topic is already up to date with master"
+		exit 1 ;# we could allow it, but there is no point.
+	else
+		exit 0
+	fi
+else
+	not_in_next=`git rev-list --pretty=oneline ^${publish} "$topic"`
+	/usr/bin/perl -e '
+		my $topic = $ARGV[0];
+		my $msg = "* $topic has commits already merged to public branch:\n";
+		my (%not_in_next) = map {
+			/^([0-9a-f]+) /;
+			($1 => 1);
+		} split(/\n/, $ARGV[1]);
+		for my $elem (map {
+				/^([0-9a-f]+) (.*)$/;
+				[$1 => $2];
+			} split(/\n/, $ARGV[2])) {
+			if (!exists $not_in_next{$elem->[0]}) {
+				if ($msg) {
+					print STDERR $msg;
+					undef $msg;
+				}
+				print STDERR " $elem->[1]\n";
+			}
+		}
+	' "$topic" "$not_in_next" "$not_in_master"
+	exit 1
+fi
+
+<<\DOC_END
+
+This sample hook safeguards topic branches that have been
+published from being rewound.
+
+The workflow assumed here is:
+
+ * Once a topic branch forks from "master", "master" is never
+   merged into it again (either directly or indirectly).
+
+ * Once a topic branch is fully cooked and merged into "master",
+   it is deleted.  If you need to build on top of it to correct
+   earlier mistakes, a new topic branch is created by forking at
+   the tip of the "master".  This is not strictly necessary, but
+   it makes it easier to keep your history simple.
+
+ * Whenever you need to test or publish your changes to topic
+   branches, merge them into "next" branch.
+
+The script, being an example, hardcodes the publish branch name
+to be "next", but it is trivial to make it configurable via
+$GIT_DIR/config mechanism.
+
+With this workflow, you would want to know:
+
+(1) ... if a topic branch has ever been merged to "next".  Young
+    topic branches can have stupid mistakes you would rather
+    clean up before publishing, and things that have not been
+    merged into other branches can be easily rebased without
+    affecting other people.  But once it is published, you would
+    not want to rewind it.
+
+(2) ... if a topic branch has been fully merged to "master".
+    Then you can delete it.  More importantly, you should not
+    build on top of it -- other people may already want to
+    change things related to the topic as patches against your
+    "master", so if you need further changes, it is better to
+    fork the topic (perhaps with the same name) afresh from the
+    tip of "master".
+
+Let's look at this example:
+
+		   o---o---o---o---o---o---o---o---o---o "next"
+		  /       /           /           /
+		 /   a---a---b A     /           /
+		/   /               /           /
+	       /   /   c---c---c---c B         /
+	      /   /   /             \         /
+	     /   /   /   b---b C     \       /
+	    /   /   /   /             \     /
+    ---o---o---o---o---o---o---o---o---o---o---o "master"
+
+
+A, B and C are topic branches.
+
+ * A has one fix since it was merged up to "next".
+
+ * B has finished.  It has been fully merged up to "master" and "next",
+   and is ready to be deleted.
+
+ * C has not merged to "next" at all.
+
+We would want to allow C to be rebased, refuse A, and encourage
+B to be deleted.
+
+To compute (1):
+
+	git rev-list ^master ^topic next
+	git rev-list ^master        next
+
+	if these match, topic has not merged in next at all.
+
+To compute (2):
+
+	git rev-list master..topic
+
+	if this is empty, it is fully merged to "master".
+
+DOC_END
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\pre-receive.sample:
+#!/bin/sh
+#
+# An example hook script to make use of push options.
+# The example simply echoes all push options that start with 'echoback='
+# and rejects all pushes when the "reject" push option is used.
+#
+# To enable this hook, rename this file to "pre-receive".
+
+if test -n "$GIT_PUSH_OPTION_COUNT"
+then
+	i=0
+	while test "$i" -lt "$GIT_PUSH_OPTION_COUNT"
+	do
+		eval "value=\$GIT_PUSH_OPTION_$i"
+		case "$value" in
+		echoback=*)
+			echo "echo from the pre-receive-hook: ${value#*=}" >&2
+			;;
+		reject)
+			exit 1
+		esac
+		i=$((i + 1))
+	done
+fi
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\prepare-commit-msg.sample:
+#!/bin/sh
+#
+# An example hook script to prepare the commit log message.
+# Called by "git commit" with the name of the file that has the
+# commit message, followed by the description of the commit
+# message's source.  The hook's purpose is to edit the commit
+# message file.  If the hook fails with a non-zero status,
+# the commit is aborted.
+#
+# To enable this hook, rename this file to "prepare-commit-msg".
+
+# This hook includes three examples. The first one removes the
+# "# Please enter the commit message..." help message.
+#
+# The second includes the output of "git diff --name-status -r"
+# into the message, just before the "git status" output.  It is
+# commented because it doesn't cope with --amend or with squashed
+# commits.
+#
+# The third example adds a Signed-off-by line to the message, that can
+# still be edited.  This is rarely a good idea.
+
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+SHA1=$3
+
+/usr/bin/perl -i.bak -ne 'print unless(m/^. Please enter the commit message/..m/^#$/)' "$COMMIT_MSG_FILE"
+
+# case "$COMMIT_SOURCE,$SHA1" in
+#  ,|template,)
+#    /usr/bin/perl -i.bak -pe '
+#       print "\n" . `git diff --cached --name-status -r`
+# 	 if /^#/ && $first++ == 0' "$COMMIT_MSG_FILE" ;;
+#  *) ;;
+# esac
+
+# SOB=$(git var GIT_COMMITTER_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+# git interpret-trailers --in-place --trailer "$SOB" "$COMMIT_MSG_FILE"
+# if test -z "$COMMIT_SOURCE"
+# then
+#   /usr/bin/perl -i.bak -pe 'print "\n" if !$first_line++' "$COMMIT_MSG_FILE"
+# fi
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\push-to-checkout.sample:
+#!/bin/sh
+
+# An example hook script to update a checked-out tree on a git push.
+#
+# This hook is invoked by git-receive-pack(1) when it reacts to git
+# push and updates reference(s) in its repository, and when the push
+# tries to update the branch that is currently checked out and the
+# receive.denyCurrentBranch configuration variable is set to
+# updateInstead.
+#
+# By default, such a push is refused if the working tree and the index
+# of the remote repository has any difference from the currently
+# checked out commit; when both the working tree and the index match
+# the current commit, they are updated to match the newly pushed tip
+# of the branch. This hook is to be used to override the default
+# behaviour; however the code below reimplements the default behaviour
+# as a starting point for convenient modification.
+#
+# The hook receives the commit with which the tip of the current
+# branch is going to be updated:
+commit=$1
+
+# It can exit with a non-zero status to refuse the push (when it does
+# so, it must not modify the index or the working tree).
+die () {
+	echo >&2 "$*"
+	exit 1
+}
+
+# Or it can make any necessary changes to the working tree and to the
+# index to bring them to the desired state when the tip of the current
+# branch is updated to the new commit, and exit with a zero status.
+#
+# For example, the hook can simply run git read-tree -u -m HEAD "$1"
+# in order to emulate git fetch that is run in the reverse direction
+# with git push, as the two-tree form of git read-tree -u -m is
+# essentially the same as git switch or git checkout that switches
+# branches while keeping the local changes in the working tree that do
+# not interfere with the difference between the branches.
+
+# The below is a more-or-less exact translation to shell of the C code
+# for the default behaviour for git's push-to-checkout hook defined in
+# the push_to_deploy() function in builtin/receive-pack.c.
+#
+# Note that the hook will be executed from the repository directory,
+# not from the working tree, so if you want to perform operations on
+# the working tree, you will have to adapt your code accordingly, e.g.
+# by adding "cd .." or using relative paths.
+
+if ! git update-index -q --ignore-submodules --refresh
+then
+	die "Up-to-date check failed"
+fi
+
+if ! git diff-files --quiet --ignore-submodules --
+then
+	die "Working directory has unstaged changes"
+fi
+
+# This is a rough translation of:
+#
+#   head_has_history() ? "HEAD" : EMPTY_TREE_SHA1_HEX
+if git cat-file -e HEAD 2>/dev/null
+then
+	head=HEAD
+else
+	head=$(git hash-object -t tree --stdin </dev/null)
+fi
+
+if ! git diff-index --quiet --cached --ignore-submodules $head --
+then
+	die "Working directory has staged changes"
+fi
+
+if ! git read-tree -u -m "$commit"
+then
+	die "Could not update working tree to new HEAD"
+fi
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\sendemail-validate.sample:
+#!/bin/sh
+
+# An example hook script to validate a patch (and/or patch series) before
+# sending it via email.
+#
+# The hook should exit with non-zero status after issuing an appropriate
+# message if it wants to prevent the email(s) from being sent.
+#
+# To enable this hook, rename this file to "sendemail-validate".
+#
+# By default, it will only check that the patch(es) can be applied on top of
+# the default upstream branch without conflicts in a secondary worktree. After
+# validation (successful or not) of the last patch of a series, the worktree
+# will be deleted.
+#
+# The following config variables can be set to change the default remote and
+# remote ref that are used to apply the patches against:
+#
+#   sendemail.validateRemote (default: origin)
+#   sendemail.validateRemoteRef (default: HEAD)
+#
+# Replace the TODO placeholders with appropriate checks according to your
+# needs.
+
+validate_cover_letter () {
+	file="$1"
+	# TODO: Replace with appropriate checks (e.g. spell checking).
+	true
+}
+
+validate_patch () {
+	file="$1"
+	# Ensure that the patch applies without conflicts.
+	git am -3 "$file" || return
+	# TODO: Replace with appropriate checks for this patch
+	# (e.g. checkpatch.pl).
+	true
+}
+
+validate_series () {
+	# TODO: Replace with appropriate checks for the whole series
+	# (e.g. quick build, coding style checks, etc.).
+	true
+}
+
+# main -------------------------------------------------------------------------
+
+if test "$GIT_SENDEMAIL_FILE_COUNTER" = 1
+then
+	remote=$(git config --default origin --get sendemail.validateRemote) &&
+	ref=$(git config --default HEAD --get sendemail.validateRemoteRef) &&
+	worktree=$(mktemp --tmpdir -d sendemail-validate.XXXXXXX) &&
+	git worktree add -fd --checkout "$worktree" "refs/remotes/$remote/$ref" &&
+	git config --replace-all sendemail.validateWorktree "$worktree"
+else
+	worktree=$(git config --get sendemail.validateWorktree)
+fi || {
+	echo "sendemail-validate: error: failed to prepare worktree" >&2
+	exit 1
+}
+
+unset GIT_DIR GIT_WORK_TREE
+cd "$worktree" &&
+
+if grep -q "^diff --git " "$1"
+then
+	validate_patch "$1"
+else
+	validate_cover_letter "$1"
+fi &&
+
+if test "$GIT_SENDEMAIL_FILE_COUNTER" = "$GIT_SENDEMAIL_FILE_TOTAL"
+then
+	git config --unset-all sendemail.validateWorktree &&
+	trap 'git worktree remove -ff "$worktree"' EXIT &&
+	validate_series
+fi
+
+
+Содержимое D:\structurizer\structurizer\.git\hooks\update.sample:
+#!/bin/sh
+#
+# An example hook script to block unannotated tags from entering.
+# Called by "git receive-pack" with arguments: refname sha1-old sha1-new
+#
+# To enable this hook, rename this file to "update".
+#
+# Config
+# ------
+# hooks.allowunannotated
+#   This boolean sets whether unannotated tags will be allowed into the
+#   repository.  By default they won't be.
+# hooks.allowdeletetag
+#   This boolean sets whether deleting tags will be allowed in the
+#   repository.  By default they won't be.
+# hooks.allowmodifytag
+#   This boolean sets whether a tag may be modified after creation. By default
+#   it won't be.
+# hooks.allowdeletebranch
+#   This boolean sets whether deleting branches will be allowed in the
+#   repository.  By default they won't be.
+# hooks.denycreatebranch
+#   This boolean sets whether remotely creating branches will be denied
+#   in the repository.  By default this is allowed.
+#
+
+# --- Command line
+refname="$1"
+oldrev="$2"
+newrev="$3"
+
+# --- Safety check
+if [ -z "$GIT_DIR" ]; then
+	echo "Don't run this script from the command line." >&2
+	echo " (if you want, you could supply GIT_DIR then run" >&2
+	echo "  $0 <ref> <oldrev> <newrev>)" >&2
+	exit 1
+fi
+
+if [ -z "$refname" -o -z "$oldrev" -o -z "$newrev" ]; then
+	echo "usage: $0 <ref> <oldrev> <newrev>" >&2
+	exit 1
+fi
+
+# --- Config
+allowunannotated=$(git config --type=bool hooks.allowunannotated)
+allowdeletebranch=$(git config --type=bool hooks.allowdeletebranch)
+denycreatebranch=$(git config --type=bool hooks.denycreatebranch)
+allowdeletetag=$(git config --type=bool hooks.allowdeletetag)
+allowmodifytag=$(git config --type=bool hooks.allowmodifytag)
+
+# check for no description
+projectdesc=$(sed -e '1q' "$GIT_DIR/description")
+case "$projectdesc" in
+"Unnamed repository"* | "")
+	echo "*** Project description file hasn't been set" >&2
+	exit 1
+	;;
+esac
+
+# --- Check types
+# if $newrev is 0000...0000, it's a commit to delete a ref.
+zero=$(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0')
+if [ "$newrev" = "$zero" ]; then
+	newrev_type=delete
+else
+	newrev_type=$(git cat-file -t $newrev)
+fi
+
+case "$refname","$newrev_type" in
+	refs/tags/*,commit)
+		# un-annotated tag
+		short_refname=${refname##refs/tags/}
+		if [ "$allowunannotated" != "true" ]; then
+			echo "*** The un-annotated tag, $short_refname, is not allowed in this repository" >&2
+			echo "*** Use 'git tag [ -a | -s ]' for tags you want to propagate." >&2
+			exit 1
+		fi
+		;;
+	refs/tags/*,delete)
+		# delete tag
+		if [ "$allowdeletetag" != "true" ]; then
+			echo "*** Deleting a tag is not allowed in this repository" >&2
+			exit 1
+		fi
+		;;
+	refs/tags/*,tag)
+		# annotated tag
+		if [ "$allowmodifytag" != "true" ] && git rev-parse $refname > /dev/null 2>&1
+		then
+			echo "*** Tag '$refname' already exists." >&2
+			echo "*** Modifying a tag is not allowed in this repository." >&2
+			exit 1
+		fi
+		;;
+	refs/heads/*,commit)
+		# branch
+		if [ "$oldrev" = "$zero" -a "$denycreatebranch" = "true" ]; then
+			echo "*** Creating a branch is not allowed in this repository" >&2
+			exit 1
+		fi
+		;;
+	refs/heads/*,delete)
+		# delete branch
+		if [ "$allowdeletebranch" != "true" ]; then
+			echo "*** Deleting a branch is not allowed in this repository" >&2
+			exit 1
+		fi
+		;;
+	refs/remotes/*,commit)
+		# tracking branch
+		;;
+	refs/remotes/*,delete)
+		# delete tracking branch
+		if [ "$allowdeletebranch" != "true" ]; then
+			echo "*** Deleting a tracking branch is not allowed in this repository" >&2
+			exit 1
+		fi
+		;;
+	*)
+		# Anything else (is there anything else?)
+		echo "*** Update hook: unknown type of update to ref $refname of type $newrev_type" >&2
+		exit 1
+		;;
+esac
+
+# --- Finished
+exit 0
+
+
+Содержимое D:\structurizer\structurizer\.git\info\exclude:
+# git ls-files --others --exclude-from=.git/info/exclude
+# Lines that start with '#' are comments.
+# For a project mostly in C, the following would be a good set of
+# exclude patterns (uncomment them if you want to use them):
+# *.[oa]
+# *~
+
+
+Содержимое D:\structurizer\structurizer\.git\logs\HEAD:
+0000000000000000000000000000000000000000 39eed801c68e09643085ebee1640ee5d05013043 Qwerty000101 <andreyiv20005@gmail.com> 1767373300 +0300	clone: from https://github.com/Qwerty000101/structurizer.git
+39eed801c68e09643085ebee1640ee5d05013043 e6df4435325067fba0077889f80ceecf88345e6a Qwerty000101 <andreyiv20005@gmail.com> 1767392236 +0300	commit: Add new functions
+
+
+Содержимое D:\structurizer\structurizer\.git\logs\refs\heads\main:
+0000000000000000000000000000000000000000 39eed801c68e09643085ebee1640ee5d05013043 Qwerty000101 <andreyiv20005@gmail.com> 1767373300 +0300	clone: from https://github.com/Qwerty000101/structurizer.git
+39eed801c68e09643085ebee1640ee5d05013043 e6df4435325067fba0077889f80ceecf88345e6a Qwerty000101 <andreyiv20005@gmail.com> 1767392236 +0300	commit: Add new functions
+
+
+Содержимое D:\structurizer\structurizer\.git\logs\refs\remotes\origin\HEAD:
+0000000000000000000000000000000000000000 39eed801c68e09643085ebee1640ee5d05013043 Qwerty000101 <andreyiv20005@gmail.com> 1767373300 +0300	clone: from https://github.com/Qwerty000101/structurizer.git
+
+
+Содержимое D:\structurizer\structurizer\.git\logs\refs\remotes\origin\main:
+39eed801c68e09643085ebee1640ee5d05013043 e6df4435325067fba0077889f80ceecf88345e6a Qwerty000101 <andreyiv20005@gmail.com> 1767392241 +0300	update by push
+
+
+Содержимое D:\structurizer\structurizer\.git\objects\14\347fade93dd2d8328c8c9f4449e1134b6ef3a4:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\19\4093dbac047573d96e7e834ecb896d094ae2d9:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\22\a24b43955f9c7aef78fcc838dcd2b24afe695a:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\3c\1489fda57dd0fa41b7dd78c6635678682117f1:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\41\93700039dfbc77cd17733b026418db135ce1b8:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\45\168a00fae81ee83507ee35552db3ec77932864:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\47\aa816b16c4a9c1e30f08bdcb44318a12f49c76:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\5c\e52d4188c46c90b1dfe0c2ed16fd16d398ae3d:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\5d\80fb936916043dc4d72751abaf1e9d56d0a995:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\68\1a64a31439263be3e3e446095dc69f50c96c70:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\92\33020c92037746e1cad8a79659e724f0c14e71:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\94\174eb1f1354543f2e4f22d409f11aa47d2c604:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\a6\a04d9f78235fad78da129b127753df6a183fc4:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\a7\7d57055ab5322b1f28fcd36548e1d2ae9fd679:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\c6\e0f4590348bf21a914d47390158c9760f014bb:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\ca\28793b582847ebdedf926dabeeb9aa67635899:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\ce\31163dd5fd4b54c9f268d808daa466b0f419a7:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\e6\9de29bb2d1d6434b8b29ae775ad8c2e48c5391:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\e6\df4435325067fba0077889f80ceecf88345e6a:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\pack\pack-696e5f00ad532ef391262a4d3e356026271e3448.idx:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\pack\pack-696e5f00ad532ef391262a4d3e356026271e3448.pack:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\objects\pack\pack-696e5f00ad532ef391262a4d3e356026271e3448.rev:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\.git\refs\heads\main:
+e6df4435325067fba0077889f80ceecf88345e6a
+
+
+Содержимое D:\structurizer\structurizer\.git\refs\remotes\origin\HEAD:
+ref: refs/remotes/origin/main
+
+
+Содержимое D:\structurizer\structurizer\.git\refs\remotes\origin\main:
+e6df4435325067fba0077889f80ceecf88345e6a
+
+
+Содержимое D:\structurizer\structurizer\analyzer\project_analyzer.py:
+import os
+from pathlib import Path
+from typing import Iterable, Optional, Set
+
+
+class ProjectAnalyzer:
+    def __init__(
+        self,
+        root_dir: Path,
+        output_file: Path,
+        ignored_dirs: Optional[Iterable[str]] = None,
+        ignored_files: Optional[Iterable[str]] = None,
+        allowed_extensions: Optional[Iterable[str]] = None,
+    ):
+        self.root_dir: Path = Path(root_dir).resolve()
+        self.output_file: Path = Path(output_file).resolve()
+
+        if not self.root_dir.exists() or not self.root_dir.is_dir():
+            raise ValueError(f"Корневая директория не существует: {self.root_dir}")
+
+        self.ignored_dirs: Set[str] = set(ignored_dirs or [])
+        self.ignored_files: Set[str] = set(ignored_files or [])
+        self.allowed_extensions: Set[str] = set(
+            ext.lower() for ext in (allowed_extensions or [])
+        )
+
+        self._file = None
+
+    # =====================
+    # Публичный API
+    # =====================
+
+    def run(self) -> None:
+        """
+        Запускает анализ проекта и записывает результат в output_file.
+        """
+        self.output_file.parent.mkdir(parents=True, exist_ok=True)
+
+        with open(self.output_file, "w", encoding="utf-8") as f:
+            self._file = f
+
+            self._write(f"Анализ проекта: {self.root_dir}\n\n")
+            self._write("Структура проекта:\n")
+            self._print_project_structure(self.root_dir)
+            self._write("\nТекст из файлов проекта:\n")
+            self._print_file_contents(self.root_dir)
+            self._write(
+                f"\nАнализ завершен. Результаты сохранены в {self.output_file}\n"
+            )
+
+            self._file = None
+
+    # =====================
+    # Внутренняя логика
+    # =====================
+
+    def _write(self, text: str) -> None:
+        self._file.write(text)
+
+    def _print_project_structure(
+        self, current_dir: Path, indent: str = "", is_last: bool = True
+    ) -> None:
+        relative_path = current_dir.relative_to(self.root_dir)
+        display_name = (
+            self.root_dir.name if relative_path == Path(".") else current_dir.name
+        )
+
+        branch = "└── " if is_last else "├── "
+        self._write(f"{indent}{branch}{display_name}\n")
+
+        indent += "    " if is_last else "│   "
+
+        try:
+            items = sorted(current_dir.iterdir(), key=lambda p: p.name.lower())
+        except (PermissionError, FileNotFoundError):
+            self._write(f"{indent}└── <нет доступа>\n")
+            return
+
+        dirs = [
+            p
+            for p in items
+            if p.is_dir() and p.name not in self.ignored_dirs
+        ]
+
+        files = [
+            p
+            for p in items
+            if p.is_file() and p.name not in self.ignored_files
+        ]
+
+        for i, dir_path in enumerate(dirs):
+            is_last_dir = (i == len(dirs) - 1) and not files
+            self._print_project_structure(dir_path, indent, is_last_dir)
+
+        for i, file_path in enumerate(files):
+            is_last_file = i == len(files) - 1
+            branch = "└── " if is_last_file else "├── "
+            self._write(f"{indent}{branch}{file_path.name}\n")
+
+    def _print_file_contents(self, root_dir: Path) -> None:
+        for root, dirs, files in os.walk(root_dir):
+            root_path = Path(root)
+
+            dirs[:] = [
+                d for d in dirs
+                if d not in self.ignored_dirs
+                and (root_path / d).resolve().is_relative_to(self.root_dir)
+            ]
+
+            files[:] = [
+                f for f in files
+                if f not in self.ignored_files
+                and (root_path / f).resolve().is_relative_to(self.root_dir)
+            ]
+
+            for filename in files:
+                file_path = root_path / filename
+                file_ext = file_path.suffix.lower()
+
+                if self.allowed_extensions and file_ext not in self.allowed_extensions:
+                    continue
+
+                try:
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        content = f.read()
+                    self._write(f"\nСодержимое {file_path}:\n{content}\n")
+                except UnicodeDecodeError:
+                    self._write(
+                        f"\nСодержимое {file_path}:\n<бинарный или нечитаемый файл>\n"
+                    )
+                except Exception as e:
+                    self._write(
+                        f"\nОшибка при чтении {file_path}: {e}\n"
+                    )
+
+
+
+Содержимое D:\structurizer\structurizer\storage\__pycache__\history_manager.cpython-311.pyc:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\storage\__pycache__\__init__.cpython-311.pyc:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\test\test.py:
+from pathlib import Path
+from analyzer.project_analyzer import ProjectAnalyzer
+
+analyzer = ProjectAnalyzer(
+    root_dir=Path('D:\structurizer\structurizer'),
+    output_file=Path("outputs/test_project.txt"),
+    ignored_dirs={"__pycache__", ".git"},
+    ignored_files={"secret.py"},
+    allowed_extensions={".py"}
+)
+
+analyzer.run()
+
+
+Содержимое D:\structurizer\structurizer\test\test_history.py:
+from pathlib import Path
+from storage.history_manager import HistoryManager
+
+history = HistoryManager(Path("D:\\structurizer\\structurizer\\test\\storage"))
+
+item = history.add(
+    project_path=Path("D:\\structurizer\\structurizer\\test\\storage"),
+    output_file=Path("D:\\structurizer\\structurizer\\test\\storage\\outputs\\test.txt"),
+    settings={
+        "ignored_dirs": [".git"],
+        "ignored_files": ["secret.py"],
+        "allowed_extensions": [".py"]
+    }
+)
+
+print(item)
+print(history.load())
+history.remove(item["id"])
+print(history.load())
+
+
+Содержимое D:\structurizer\structurizer\test\analyzer\project_analyzer.py:
+import os
+from pathlib import Path
+from typing import Iterable, Optional, Set
+
+
+class ProjectAnalyzer:
+    def __init__(
+        self,
+        root_dir: Path,
+        output_file: Path,
+        ignored_dirs: Optional[Iterable[str]] = None,
+        ignored_files: Optional[Iterable[str]] = None,
+        allowed_extensions: Optional[Iterable[str]] = None,
+    ):
+        self.root_dir: Path = Path(root_dir).resolve()
+        self.output_file: Path = Path(output_file).resolve()
+
+        if not self.root_dir.exists() or not self.root_dir.is_dir():
+            raise ValueError(f"Корневая директория не существует: {self.root_dir}")
+
+        self.ignored_dirs: Set[str] = set(ignored_dirs or [])
+        self.ignored_files: Set[str] = set(ignored_files or [])
+        self.allowed_extensions: Set[str] = set(
+            ext.lower() for ext in (allowed_extensions or [])
+        )
+
+        self._file = None
+
+    # =====================
+    # Публичный API
+    # =====================
+
+    def run(self) -> None:
+        """
+        Запускает анализ проекта и записывает результат в output_file.
+        """
+        self.output_file.parent.mkdir(parents=True, exist_ok=True)
+
+        with open(self.output_file, "w", encoding="utf-8") as f:
+            self._file = f
+
+            self._write(f"Анализ проекта: {self.root_dir}\n\n")
+            self._write("Структура проекта:\n")
+            self._print_project_structure(self.root_dir)
+            self._write("\nТекст из файлов проекта:\n")
+            self._print_file_contents(self.root_dir)
+            self._write(
+                f"\nАнализ завершен. Результаты сохранены в {self.output_file}\n"
+            )
+
+            self._file = None
+
+    # =====================
+    # Внутренняя логика
+    # =====================
+
+    def _write(self, text: str) -> None:
+        self._file.write(text)
+
+    def _print_project_structure(
+        self, current_dir: Path, indent: str = "", is_last: bool = True
+    ) -> None:
+        relative_path = current_dir.relative_to(self.root_dir)
+        display_name = (
+            self.root_dir.name if relative_path == Path(".") else current_dir.name
+        )
+
+        branch = "└── " if is_last else "├── "
+        self._write(f"{indent}{branch}{display_name}\n")
+
+        indent += "    " if is_last else "│   "
+
+        try:
+            items = sorted(current_dir.iterdir(), key=lambda p: p.name.lower())
+        except (PermissionError, FileNotFoundError):
+            self._write(f"{indent}└── <нет доступа>\n")
+            return
+
+        dirs = [
+            p
+            for p in items
+            if p.is_dir() and p.name not in self.ignored_dirs
+        ]
+
+        files = [
+            p
+            for p in items
+            if p.is_file() and p.name not in self.ignored_files
+        ]
+
+        for i, dir_path in enumerate(dirs):
+            is_last_dir = (i == len(dirs) - 1) and not files
+            self._print_project_structure(dir_path, indent, is_last_dir)
+
+        for i, file_path in enumerate(files):
+            is_last_file = i == len(files) - 1
+            branch = "└── " if is_last_file else "├── "
+            self._write(f"{indent}{branch}{file_path.name}\n")
+
+    def _print_file_contents(self, root_dir: Path) -> None:
+        for root, dirs, files in os.walk(root_dir):
+            root_path = Path(root)
+
+            dirs[:] = [
+                d for d in dirs
+                if d not in self.ignored_dirs
+                and (root_path / d).resolve().is_relative_to(self.root_dir)
+            ]
+
+            files[:] = [
+                f for f in files
+                if f not in self.ignored_files
+                and (root_path / f).resolve().is_relative_to(self.root_dir)
+            ]
+
+            for filename in files:
+                file_path = root_path / filename
+                file_ext = file_path.suffix.lower()
+
+                if self.allowed_extensions and file_ext not in self.allowed_extensions:
+                    continue
+
+                try:
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        content = f.read()
+                    self._write(f"\nСодержимое {file_path}:\n{content}\n")
+                except UnicodeDecodeError:
+                    self._write(
+                        f"\nСодержимое {file_path}:\n<бинарный или нечитаемый файл>\n"
+                    )
+                except Exception as e:
+                    self._write(
+                        f"\nОшибка при чтении {file_path}: {e}\n"
+                    )
+
+
+Содержимое D:\structurizer\structurizer\test\analyzer\__pycache__\project_analyzer.cpython-311.pyc:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\test\storage\history.json:
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "b159596a",
+      "project_path": "D:\\TestProject",
+      "output_file": "storage\\outputs\\test.txt",
+      "created_at": "2026-01-03T00:08:20",
+      "settings": {
+        "ignored_dirs": [
+          ".git"
+        ],
+        "ignored_files": [
+          "secret.py"
+        ],
+        "allowed_extensions": [
+          ".py"
+        ]
+      }
+    },
+    {
+      "id": "e3483fa4",
+      "project_path": "D:\\structurizer\\structurizer\\test\\storage",
+      "output_file": "D:\\structurizer\\structurizer\\test\\storage\\outputs\\test.txt",
+      "created_at": "2026-01-03T00:10:06",
+      "settings": {
+        "ignored_dirs": [
+          ".git"
+        ],
+        "ignored_files": [
+          "secret.py"
+        ],
+        "allowed_extensions": [
+          ".py"
+        ]
+      }
+    },
+    {
+      "id": "2f550118",
+      "project_path": "D:\\structurizer\\structurizer\\test\\storage",
+      "output_file": "D:\\structurizer\\structurizer\\test\\storage\\outputs\\test.txt",
+      "created_at": "2026-01-03T00:11:08",
+      "settings": {
+        "ignored_dirs": [
+          ".git"
+        ],
+        "ignored_files": [
+          "secret.py"
+        ],
+        "allowed_extensions": [
+          ".py"
+        ]
+      }
+    }
+  ]
+}
+
+Содержимое D:\structurizer\structurizer\test\storage\history_manager.py:
+import json
+import uuid
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List, Optional
+
+
+class HistoryManager:
+    HISTORY_VERSION = 1
+
+    def __init__(self, base_dir: Path):
+        """
+        base_dir — папка storage/
+        """
+        self.base_dir = Path(base_dir).resolve()
+        self.outputs_dir = self.base_dir / "outputs"
+        self.history_file = self.base_dir / "history.json"
+
+        self.base_dir.mkdir(parents=True, exist_ok=True)
+        self.outputs_dir.mkdir(parents=True, exist_ok=True)
+
+        if not self.history_file.exists():
+            self._write_history({
+                "version": self.HISTORY_VERSION,
+                "items": []
+            })
+
+    # =====================
+    # Публичный API
+    # =====================
+
+    def load(self) -> List[Dict]:
+        """
+        Загружает и возвращает список элементов истории.
+        """
+        data = self._read_history()
+        return data.get("items", [])
+
+    def add(
+        self,
+        project_path: Path,
+        output_file: Path,
+        settings: Dict
+    ) -> Dict:
+        """
+        Добавляет новую запись в историю и возвращает её.
+        """
+        data = self._read_history()
+
+        item = {
+            "id": uuid.uuid4().hex[:8],
+            "project_path": str(project_path),
+            "output_file": str(output_file),
+            "created_at": datetime.now().isoformat(timespec="seconds"),
+            "settings": settings,
+        }
+
+        data["items"].append(item)
+        self._write_history(data)
+
+        return item
+
+    def remove(self, item_id: str, delete_output: bool = True) -> bool:
+        """
+        Удаляет запись по id.
+        Если delete_output=True — удаляет и файл результата.
+        """
+        data = self._read_history()
+        items = data.get("items", [])
+
+        item = next((i for i in items if i["id"] == item_id), None)
+        if not item:
+            return False
+
+        if delete_output:
+            output_path = Path(item["output_file"])
+            try:
+                if output_path.exists():
+                    output_path.unlink()
+            except Exception:
+                # Файл мог быть удалён вручную — это не критично
+                pass
+
+        data["items"] = [i for i in items if i["id"] != item_id]
+        self._write_history(data)
+
+        return True
+
+    def get(self, item_id: str) -> Optional[Dict]:
+        """
+        Возвращает одну запись по id.
+        """
+        items = self.load()
+        return next((i for i in items if i["id"] == item_id), None)
+
+    # =====================
+    # Внутренние методы
+    # =====================
+
+    def _read_history(self) -> Dict:
+        try:
+            with open(self.history_file, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except (json.JSONDecodeError, FileNotFoundError):
+            # Восстановление при повреждённом файле
+            data = {
+                "version": self.HISTORY_VERSION,
+                "items": []
+            }
+            self._write_history(data)
+            return data
+
+    def _write_history(self, data: Dict) -> None:
+        with open(self.history_file, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+Содержимое D:\structurizer\structurizer\test\storage\__pycache__\history_manager.cpython-311.pyc:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\ui\main_window.py:
+from PySide6.QtWidgets import (
+    QMainWindow,
+    QWidget,
+    QListWidget,
+    QVBoxLayout,
+    QHBoxLayout,
+    QLineEdit,
+    QPushButton,
+    QLabel,
+    QCheckBox,
+    QFileDialog,
+    QSizePolicy,
+    QListWidgetItem
+)
+from PySide6.QtCore import Qt
+from structurizer.storage.history_manager import HistoryManager
+from pathlib import Path
+from datetime import datetime
+import os
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Project Analyzer")
+        self.resize(1100, 700)
+
+        BASE_DIR = Path(__file__).resolve().parent.parent
+
+        self.history_manager = HistoryManager(
+            base_dir=BASE_DIR / "storage"  # ← убрать / "outputs"
+        )
+        self._build_ui()
+        self._load_history()
+
+    def _load_history(self):
+        self.history_list.clear()
+
+        items = self.history_manager.load()  # Уже возвращает список словарей
+
+        for item in items:
+            # Используем только имя папки для отображения
+            project_path = Path(item["project_path"])
+            display_name = project_path.name if project_path.name else str(project_path)
+
+            item_text = f"{display_name} ({item['created_at']})"
+            list_item = QListWidgetItem(item_text)
+
+            # Сохраняем ВСЮ запись для доступа к output_file
+            list_item.setData(Qt.UserRole, item)
+
+            self.history_list.addItem(list_item)
+
+    def _build_ui(self):
+        central = QWidget(self)
+        self.setCentralWidget(central)
+
+        main_layout = QHBoxLayout(central)
+
+        # =====================
+        # Левая панель — история
+        # =====================
+        self.history_list = QListWidget()
+        self.history_list.setMinimumWidth(320)
+        self.history_list.setSizePolicy(
+            QSizePolicy.Fixed, QSizePolicy.Expanding
+        )
+
+        main_layout.addWidget(self.history_list)
+
+        # =====================
+        # Правая панель — настройки
+        # =====================
+        right_panel = QWidget()
+        right_layout = QVBoxLayout(right_panel)
+        right_layout.setSpacing(10)
+
+        # Путь к проекту
+        path_layout = QHBoxLayout()
+        self.path_input = QLineEdit()
+        self.path_input.setPlaceholderText("Путь к проекту")
+
+        self.browse_button = QPushButton("📂")
+        self.browse_button.setFixedWidth(40)
+
+        path_layout.addWidget(self.path_input)
+        path_layout.addWidget(self.browse_button)
+
+        right_layout.addLayout(path_layout)
+
+        # Ignored dirs
+        self.ignored_dirs_input = QLineEdit()
+        self.ignored_dirs_input.setPlaceholderText(
+            "Игнорируемые папки (через ;)"
+        )
+        right_layout.addWidget(QLabel("Запрещённые папки:"))
+        right_layout.addWidget(self.ignored_dirs_input)
+
+        # Ignored files
+        self.ignored_files_input = QLineEdit()
+        self.ignored_files_input.setPlaceholderText(
+            "Игнорируемые файлы (через ;)"
+        )
+        right_layout.addWidget(QLabel("Запрещённые файлы:"))
+        right_layout.addWidget(self.ignored_files_input)
+
+        # Allowed extensions
+        self.allowed_ext_input = QLineEdit()
+        self.allowed_ext_input.setPlaceholderText(
+            "Разрешённые расширения (.py; .js; .cs)"
+        )
+
+        self.all_extensions_checkbox = QCheckBox("Анализировать все расширения")
+
+        right_layout.addWidget(QLabel("Разрешённые расширения:"))
+        right_layout.addWidget(self.allowed_ext_input)
+        right_layout.addWidget(self.all_extensions_checkbox)
+
+        # Spacer
+        right_layout.addStretch()
+
+        self.history_list.itemClicked.connect(self._on_history_item_clicked)
+        self.history_list.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.history_list.customContextMenuRequested.connect(
+            self._on_history_context_menu
+        )
+
+        # Кнопка запуска
+        self.start_button = QPushButton("Начать анализ")
+        self.start_button.setFixedHeight(40)
+        right_layout.addWidget(self.start_button)
+
+        main_layout.addWidget(right_panel)
+
+        # =====================
+        # Сигналы (пока пустые)
+        # =====================
+        self.browse_button.clicked.connect(self._on_browse_clicked)
+        self.all_extensions_checkbox.toggled.connect(
+            self.allowed_ext_input.setDisabled
+        )
+        # В конце _build_ui():
+        self.start_button.clicked.connect(self._on_start_clicked)
+
+    # =====================
+    # Заглушки обработчиков
+    # =====================
+    def _open_result_file(self, entry):
+        """Открывает файл результата"""
+        output_file = Path(entry["output_file"])
+        if output_file.exists():
+            import os
+            os.startfile(str(output_file))
+        else:
+            self._show_error("Файл не найден")
+
+    def _open_in_explorer(self, entry):
+        """Открывает проводник с файлом"""
+        output_file = Path(entry["output_file"])
+        if output_file.exists():
+            import os
+            # Открываем папку и выделяем файл
+            os.system(f'explorer /select,"{output_file}"')
+        else:
+            self._show_error("Файл не найден")
+
+    def _copy_to_clipboard(self, entry):
+        """Копирует путь к файлу в буфер обмена"""
+        output_file = Path(entry["output_file"])
+        from PySide6.QtWidgets import QApplication
+        from PySide6.QtGui import QClipboard
+
+        clipboard = QApplication.clipboard()
+        clipboard.setText(str(output_file))
+
+    def _delete_history_item(self, entry, item):
+        """Удаляет элемент истории"""
+        from PySide6.QtWidgets import QMessageBox
+
+        reply = QMessageBox.question(
+            self,
+            "Подтверждение",
+            f"Удалить запись {Path(entry['project_path']).name}?",
+            QMessageBox.Yes | QMessageBox.No
+        )
+
+        if reply == QMessageBox.Yes:
+            success = self.history_manager.remove(entry["id"])
+            if success:
+                self.history_list.takeItem(self.history_list.row(item))
+                self._show_info("Запись удалена")
+            else:
+                self._show_error("Ошибка при удалении")
+    def _on_history_item_clicked(self, item):
+        """Открывает файл результата при клике на элемент истории"""
+        entry = item.data(Qt.UserRole)
+
+        if not entry:
+            return
+
+        output_file = Path(entry["output_file"])
+
+        if output_file.exists():
+            try:
+                import os
+                import subprocess
+                # Открываем файл в блокноте (или другом текстовом редакторе)
+                os.startfile(str(output_file))
+            except Exception as e:
+                self._show_error(f"Не удалось открыть файл: {e}")
+        else:
+            self._show_error("Файл не найден")
+
+    def _on_browse_clicked(self):
+        """Открывает диалог выбора папки"""
+        dir_path = QFileDialog.getExistingDirectory(
+            self, 
+            "Выберите папку проекта"
+        )
+    
+        if dir_path:
+            self.path_input.setText(dir_path)
+
+    def _on_history_context_menu(self, pos):
+        """Показывает контекстное меню для элемента истории"""
+        item = self.history_list.itemAt(pos)
+
+        if not item:
+            return
+
+        entry = item.data(Qt.UserRole)
+
+        from PySide6.QtWidgets import QMenu
+
+        menu = QMenu()
+
+        # Действия меню
+        open_action = menu.addAction("📂 Открыть файл")
+        open_in_explorer_action = menu.addAction("📁 Открыть в проводнике")
+        copy_path_action = menu.addAction("📋 Копировать путь")
+        delete_action = menu.addAction("🗑 Удалить")
+
+        # Показываем меню
+        action = menu.exec(self.history_list.mapToGlobal(pos))
+
+        if action == open_action:
+            self._open_result_file(entry)
+        elif action == open_in_explorer_action:
+            self._open_in_explorer(entry)
+        elif action == copy_path_action:
+            self._copy_to_clipboard(entry)
+        elif action == delete_action:
+            self._delete_history_item(entry, item)
+
+
+    def _on_start_clicked(self):
+        """Запускает анализ проекта"""
+        project_path_str = self.path_input.text().strip()
+
+        if not project_path_str:
+            # Показать сообщение об ошибке
+            self._show_error("Укажите путь к проекту")
+            return
+
+        project_path = Path(project_path_str)
+
+        if not project_path.exists():
+            self._show_error(f"Путь не существует: {project_path}")
+            return
+
+        # Парсим настройки
+        ignored_dirs = [
+            d.strip() for d in self.ignored_dirs_input.text().split(';') 
+            if d.strip()
+        ]
+        ignored_files = [
+            f.strip() for f in self.ignored_files_input.text().split(';') 
+            if f.strip()
+        ]
+
+        if self.all_extensions_checkbox.isChecked():
+            allowed_extensions = None  # Анализировать все файлы
+        else:
+            allowed_extensions = [
+                ext.strip() for ext in self.allowed_ext_input.text().split(';') 
+                if ext.strip()
+            ]
+
+        # Генерируем имя для выходного файла
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        project_name = project_path.name or "project"
+        output_filename = f"{project_name}_{timestamp}.txt"
+        output_file = self.history_manager.outputs_dir / output_filename
+
+        try:
+            # Создаем анализатор
+            from structurizer.analyzer.project_analyzer import ProjectAnalyzer
+
+            analyzer = ProjectAnalyzer(
+                root_dir=project_path,
+                output_file=output_file,
+                ignored_dirs=ignored_dirs,
+                ignored_files=ignored_files,
+                allowed_extensions=allowed_extensions
+            )
+
+            analyzer.run()
+
+            # Добавляем в историю
+            settings = {
+                "ignored_dirs": ignored_dirs,
+                "ignored_files": ignored_files,
+                "allowed_extensions": allowed_extensions
+            }
+
+            history_item = self.history_manager.add(
+                project_path=project_path,
+                output_file=output_file,
+                settings=settings
+            )
+
+            # Обновляем список
+            self._load_history()
+
+            # Показываем сообщение об успехе
+            self._show_info(f"Анализ завершен. Файл: {output_file}")
+
+        except Exception as e:
+            self._show_error(f"Ошибка при анализе: {e}")
+
+
+    def _show_error(self, message):
+        """Показывает сообщение об ошибке"""
+        from PySide6.QtWidgets import QMessageBox
+        QMessageBox.critical(self, "Ошибка", message)
+
+
+    def _show_info(self, message):
+        """Показывает информационное сообщение"""
+        from PySide6.QtWidgets import QMessageBox
+        QMessageBox.information(self, "Информация", message)
+
+
+Содержимое D:\structurizer\structurizer\ui\__init__.py:
+
+
+Содержимое D:\structurizer\structurizer\ui\__pycache__\main_window.cpython-311.pyc:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\ui\__pycache__\__init__.cpython-311.pyc:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\__pycache__\app.cpython-311.pyc:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\__pycache__\app.cpython-312.pyc:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\__pycache__\struct.cpython-311.pyc:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\__pycache__\__init__.cpython-311.pyc:
+<бинарный или нечитаемый файл>
+
+Содержимое D:\structurizer\structurizer\__pycache__\__init__.cpython-312.pyc:
+<бинарный или нечитаемый файл>
+
+Анализ завершен. Результаты сохранены в D:\structurizer\structurizer\storage\outputs\structurizer_20260103_012751.txt

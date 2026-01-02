@@ -67,26 +67,13 @@ class HistoryManager:
         self._write_history(data)
 
         return item
-    def get_all(self) -> List[HistoryEntry]:
+    def get_all(self) -> List[Dict]:
         """
-        Возвращает все сохранённые анализы
+        Возвращает все сохранённые элементы истории.
         """
-        entries = []
+        return self.load()
+    
 
-        for txt_file in sorted(self.base_dir.glob("*.txt")):
-            try:
-                project_path = Path(txt_file.stem)
-                entries.append(
-                    HistoryEntry(
-                        project_path=project_path,
-                        output_file=txt_file
-                    )
-                )
-            except Exception:
-                continue
-        return entries
-    
-    
     def remove(self, item_id: str, delete_output: bool = True) -> bool:
         """
         Удаляет запись по id.
