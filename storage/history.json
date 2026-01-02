@@ -2,14 +2,21 @@
   "version": 1,
   "items": [
     {
-      "id": "c1878fdb",
-      "project_path": "D:\\structurizer\\structurizer",
-      "output_file": "D:\\structurizer\\structurizer\\storage\\outputs\\structurizer_20260103_012751.txt",
-      "created_at": "2026-01-03T01:27:52",
+      "id": "3ff49fa5",
+      "project_path": "C:\\Users\\HAIER\\Desktop\\LLM\\test\\backend",
+      "output_file": "D:\\structurizer\\structurizer\\storage\\outputs\\backend_20260103_013158.txt",
+      "created_at": "2026-01-03T01:31:58",
       "settings": {
-        "ignored_dirs": [],
-        "ignored_files": [],
-        "allowed_extensions": null
+        "ignored_dirs": [
+          "node_modules"
+        ],
+        "ignored_files": [
+          "types.d.ts"
+        ],
+        "allowed_extensions": [
+          ".ts",
+          ".tsx"
+        ]
       }
     }
   ]
