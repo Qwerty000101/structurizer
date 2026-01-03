@@ -11,9 +11,16 @@ from PySide6.QtWidgets import (
     QFileDialog,
     QSizePolicy,
     QListWidgetItem,
-    QComboBox
+    QComboBox,
+    QTabWidget, 
+    QInputDialog, 
+    QTextEdit, 
+    QGroupBox, 
+    QFormLayout,
+    QApplication, 
+    QMessageBox
 )
-from PySide6.QtWidgets import QApplication, QMessageBox
+
 from PySide6.QtGui import QClipboard
 from PySide6.QtCore import Qt, QStringListModel
 
@@ -27,16 +34,29 @@ from structurizer.ui.clipboard_utils import copy_file_content_to_clipboard
 from structurizer.ui.file_clipboard import copy_file_to_clipboard_as_object
 from structurizer.analyzer.project_analyzer import ProjectAnalyzer
 from PySide6.QtGui import QKeySequence, QShortcut
+from structurizer.storage.template_manager import TemplateManager
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Project Analyzer")
         self.resize(600, 350)
-        
-        self.history_manager = HistoryManager(base_dir=STORAGE_DIR)
+
+        BASE_DIR = Path(__file__).resolve().parent.parent
+
+        self.history_manager = HistoryManager(
+            base_dir=BASE_DIR / "storage"
+        )
+
+        # Добавляем менеджер шаблонов
+        self.template_manager = TemplateManager(
+            storage_dir=BASE_DIR / "storage"
+        )
+
         self._build_ui()
         self._load_history()
+    
+    # Переносим загрузку шаблонов в конец _build_ui
 
     def _load_history(self):
         """Загружает историю анализов"""
@@ -71,27 +91,14 @@ class MainWindow(QMainWindow):
         # =====================
         left_panel = QWidget()
         left_layout = QVBoxLayout(left_panel)
-        left_layout.setSpacing(5)  # Уменьшаем расстояние между элементами
+        left_layout.setSpacing(5)
 
         # Панель поиска
         search_panel = QWidget()
         search_layout = QHBoxLayout(search_panel)
         search_layout.setContentsMargins(0, 0, 0, 0)
 
-        # Иконка поиска
-        search_icon = QLabel("🔍")
-        search_icon.setFixedWidth(20)
-
-        # Поле поиска
-        self.search_input = QLineEdit()
-        self.search_input.setPlaceholderText("Поиск по истории...")
-        self.search_input.setClearButtonEnabled(True)
-
-
-
-        search_layout.addWidget(search_icon)
-        search_layout.addWidget(self.search_input)
-        # В метод _build_ui, после создания search_input:
+        # Поле поиска с комбобоксом для выбора поля
         self.search_field_combo = QComboBox()
         self.search_field_combo.addItems([
             "Все поля",
@@ -102,10 +109,13 @@ class MainWindow(QMainWindow):
         ])
         self.search_field_combo.setFixedWidth(120)
 
-        # Обновляем search_layout:
-        search_layout.addWidget(search_icon)
-        search_layout.addWidget(self.search_field_combo)  # Добавляем комбобокс
+        self.search_input = QLineEdit()
+        self.search_input.setPlaceholderText("Поиск по истории...")
+        self.search_input.setClearButtonEnabled(True)
+
+        search_layout.addWidget(self.search_field_combo)
         search_layout.addWidget(self.search_input)
+
         # Добавляем панель поиска
         left_layout.addWidget(search_panel)
 
@@ -126,11 +136,130 @@ class MainWindow(QMainWindow):
         main_layout.addWidget(left_panel)
 
         # =====================
-        # Правая панель — настройки
+        # Правая панель — вкладки
         # =====================
-        right_panel = QWidget()
-        right_layout = QVBoxLayout(right_panel)
-        right_layout.setSpacing(10)
+        self.tab_widget = QTabWidget()
+
+        # Вкладка 1: Настройки анализа
+        self.settings_tab = QWidget()
+        self._build_settings_tab()  # Здесь создаётся start_button
+        self.tab_widget.addTab(self.settings_tab, "Настройки анализа")
+
+        # Вкладка 2: Шаблоны
+        self.templates_tab = QWidget()
+        self._build_templates_tab()
+        self.tab_widget.addTab(self.templates_tab, "Шаблоны настроек")
+
+        main_layout.addWidget(self.tab_widget)
+
+        # =====================
+        # Подключаем сигналы ПОСЛЕ создания всех виджетов
+        # =====================
+        # Сигналы для поиска
+        self.search_input.textChanged.connect(self._on_search_text_changed)
+        self.search_field_combo.currentTextChanged.connect(self._on_search_text_changed)
+
+        # Сигналы для списка истории
+        self.history_list.itemClicked.connect(self._on_history_item_clicked)
+        self.history_list.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.history_list.customContextMenuRequested.connect(
+            self._on_history_context_menu
+        )
+
+        # Сигнал для кнопки запуска (теперь start_button уже создан)
+        self.start_button.clicked.connect(self._on_start_clicked)
+
+        # Настраиваем горячие клавиши
+        self.setup_shortcuts()
+
+        # Загружаем шаблоны ПОСЛЕ создания всех виджетов
+        self._load_templates()
+
+        # Настраиваем автодополнение для поиска (опционально)
+        self._setup_search_autocomplete()
+
+    def _build_templates_tab(self):
+        """Создаёт вкладку управления шаблонами"""
+        layout = QVBoxLayout(self.templates_tab)
+
+        # Список шаблонов
+        templates_group = QGroupBox("Шаблоны")
+        templates_layout = QVBoxLayout(templates_group)
+
+        self.templates_list = QListWidget()
+        self.templates_list.itemClicked.connect(self._on_template_item_clicked)
+        self.templates_list.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.templates_list.customContextMenuRequested.connect(
+            self._on_template_context_menu
+        )
+
+        templates_layout.addWidget(self.templates_list)
+
+        # Кнопки управления
+        buttons_layout = QHBoxLayout()
+
+        self.add_template_button = QPushButton("➕ Добавить шаблон")
+        self.add_template_button.clicked.connect(self._add_template)
+
+        self.edit_template_button = QPushButton("✏️ Переименовать")
+        self.edit_template_button.clicked.connect(self._edit_template)
+
+        self.delete_template_button = QPushButton("🗑 Удалить")
+        self.delete_template_button.clicked.connect(self._delete_template)
+
+        self.apply_template_button = QPushButton("📋 Применить")
+        self.apply_template_button.clicked.connect(self._apply_selected_template)
+
+        buttons_layout.addWidget(self.add_template_button)
+        buttons_layout.addWidget(self.edit_template_button)
+        buttons_layout.addWidget(self.delete_template_button)
+        buttons_layout.addWidget(self.apply_template_button)
+
+        templates_layout.addLayout(buttons_layout)
+
+        layout.addWidget(templates_group)
+
+        # Детали шаблона
+        details_group = QGroupBox("Детали шаблона")
+        details_layout = QFormLayout(details_group)
+
+        self.template_name_label = QLabel()
+        self.template_created_label = QLabel()
+        self.template_updated_label = QLabel()
+        self.template_settings_text = QTextEdit()
+        self.template_settings_text.setReadOnly(True)
+        self.template_settings_text.setMaximumHeight(150)
+
+        details_layout.addRow("Название:", self.template_name_label)
+        details_layout.addRow("Создан:", self.template_created_label)
+        details_layout.addRow("Обновлён:", self.template_updated_label)
+        details_layout.addRow("Настройки:", self.template_settings_text)
+
+        layout.addWidget(details_group)
+        layout.addStretch()
+
+
+    def _build_settings_tab(self):
+        """Создаёт вкладку настроек анализа"""
+        layout = QVBoxLayout(self.settings_tab)
+        layout.setSpacing(10)
+
+        # Панель выбора шаблона
+        template_group = QGroupBox("Шаблон настроек")
+        template_layout = QHBoxLayout(template_group)
+
+        self.template_combo = QComboBox()
+        self.template_combo.addItem("Выберите шаблон настроек", None)
+        self.template_combo.currentIndexChanged.connect(self._on_template_selected)
+
+        self.save_as_template_button = QPushButton("💾 Сохранить как шаблон")
+        self.save_as_template_button.clicked.connect(self._save_current_as_template)
+
+        template_layout.addWidget(QLabel("Шаблон:"))
+        template_layout.addWidget(self.template_combo, 1)
+        template_layout.addWidget(self.save_as_template_button)
+
+        layout.addWidget(template_group)
 
         # Путь к проекту
         path_layout = QHBoxLayout()
@@ -143,23 +272,23 @@ class MainWindow(QMainWindow):
         path_layout.addWidget(self.path_input)
         path_layout.addWidget(self.browse_button)
 
-        right_layout.addLayout(path_layout)
+        layout.addLayout(path_layout)
 
         # Ignored dirs
         self.ignored_dirs_input = QLineEdit()
         self.ignored_dirs_input.setPlaceholderText(
             "Игнорируемые папки (через ;)"
         )
-        right_layout.addWidget(QLabel("Запрещённые папки:"))
-        right_layout.addWidget(self.ignored_dirs_input)
+        layout.addWidget(QLabel("Запрещённые папки:"))
+        layout.addWidget(self.ignored_dirs_input)
 
         # Ignored files
         self.ignored_files_input = QLineEdit()
         self.ignored_files_input.setPlaceholderText(
             "Игнорируемые файлы (через ;)"
         )
-        right_layout.addWidget(QLabel("Запрещённые файлы:"))
-        right_layout.addWidget(self.ignored_files_input)
+        layout.addWidget(QLabel("Запрещённые файлы:"))
+        layout.addWidget(self.ignored_files_input)
 
         # Allowed extensions
         self.allowed_ext_input = QLineEdit()
@@ -169,47 +298,325 @@ class MainWindow(QMainWindow):
 
         self.all_extensions_checkbox = QCheckBox("Анализировать все расширения")
 
-        right_layout.addWidget(QLabel("Разрешённые расширения:"))
-        right_layout.addWidget(self.allowed_ext_input)
-        right_layout.addWidget(self.all_extensions_checkbox)
+        layout.addWidget(QLabel("Разрешённые расширения:"))
+        layout.addWidget(self.allowed_ext_input)
+        layout.addWidget(self.all_extensions_checkbox)
 
         # Spacer
-        right_layout.addStretch()
-
-        self.history_list.itemClicked.connect(self._on_history_item_clicked)
-        self.history_list.setContextMenuPolicy(Qt.CustomContextMenu)
-        self.history_list.customContextMenuRequested.connect(
-            self._on_history_context_menu
-        )
+        layout.addStretch()
 
         # Кнопка запуска
         self.start_button = QPushButton("Начать анализ")
         self.start_button.setFixedHeight(40)
-        right_layout.addWidget(self.start_button)
+        layout.addWidget(self.start_button)
 
-        main_layout.addWidget(right_panel)
-
-        # =====================
         # Подключаем сигналы
-        # =====================
         self.browse_button.clicked.connect(self._on_browse_clicked)
         self.all_extensions_checkbox.toggled.connect(
             self.allowed_ext_input.setDisabled
         )
-        self.start_button.clicked.connect(self._on_start_clicked)
-
-        # Сигналы для поиска
-        self.search_input.textChanged.connect(self._on_search_text_changed)
-
-        # Настраиваем горячие клавиши
-        self.setup_shortcuts()
-
-        # Настраиваем автодополнение для поиска (опционально)
-        self._setup_search_autocomplete()
-
     # =====================
-    # Заглушки обработчиков
+    # Обработчики
     # =====================
+    def _load_templates(self):
+        """Загружает список шаблонов"""
+        # Очищаем списки
+        self.template_combo.clear()
+        self.templates_list.clear()
+
+        # Добавляем пустой элемент
+        self.template_combo.addItem("-- Выберите шаблон --", None)
+
+        # Загружаем шаблоны
+        templates = self.template_manager.get_all()
+
+        # Если шаблонов нет, добавляем стандартные
+        if not templates:
+            default_templates = self.template_manager.get_default_templates()
+            for template in default_templates:
+                self.template_manager.create(template["name"], template["settings"])
+
+            # Перезагружаем
+            templates = self.template_manager.get_all()
+
+        # Заполняем комбобокс и список
+        for template in templates:
+            # В комбобокс
+            self.template_combo.addItem(template["name"], template["id"])
+
+            # В список
+            item = QListWidgetItem(template["name"])
+            item.setData(Qt.UserRole, template)
+            self.templates_list.addItem(item)
+
+        # Очищаем детали
+        self._clear_template_details()
+
+    def _clear_template_details(self):
+        """Очищает детали шаблона"""
+        self.template_name_label.setText("")
+        self.template_created_label.setText("")
+        self.template_updated_label.setText("")
+        self.template_settings_text.clear()
+
+    def _on_template_item_clicked(self, item):
+        """Обработчик клика по шаблону в списке"""
+        template = item.data(Qt.UserRole)
+        if template:
+            self._show_template_details(template)
+
+    def _show_template_details(self, template):
+        """Показывает детали шаблона"""
+        self.template_name_label.setText(template.get("name", ""))
+
+        # Форматируем даты
+        created_at = template.get("created_at", "")
+        if created_at:
+            try:
+                dt = datetime.fromisoformat(created_at.replace('Z', '+00:00'))
+                self.template_created_label.setText(dt.strftime("%d.%m.%Y %H:%M"))
+            except:
+                self.template_created_label.setText(created_at)
+
+        updated_at = template.get("updated_at", "")
+        if updated_at:
+            try:
+                dt = datetime.fromisoformat(updated_at.replace('Z', '+00:00'))
+                self.template_updated_label.setText(dt.strftime("%d.%m.%Y %H:%M"))
+            except:
+                self.template_updated_label.setText(updated_at)
+
+        # Форматируем настройки
+        settings = template.get("settings", {})
+        text = []
+        if "ignored_dirs" in settings:
+            text.append(f"Папки: {', '.join(settings['ignored_dirs'])}")
+        if "ignored_files" in settings:
+            text.append(f"Файлы: {', '.join(settings['ignored_files'])}")
+        if "allowed_extensions" in settings:
+            exts = settings['allowed_extensions']
+            if exts:
+                text.append(f"Расширения: {', '.join(exts)}")
+            else:
+                text.append("Расширения: все")
+
+        self.template_settings_text.setText("\n".join(text))
+
+    def _on_template_selected(self, index):
+        """Обработчик выбора шаблона в комбобоксе"""
+        template_id = self.template_combo.currentData()
+        if template_id:
+            template = self.template_manager.get(template_id)
+            if template:
+                self._apply_template_settings(template)
+
+    def _apply_template_settings(self, template):
+        """Применяет настройки шаблона к полям"""
+        settings = template.get("settings", {})
+
+        # Заполняем поля
+        if "ignored_dirs" in settings:
+            self.ignored_dirs_input.setText("; ".join(settings["ignored_dirs"]))
+
+        if "ignored_files" in settings:
+            self.ignored_files_input.setText("; ".join(settings["ignored_files"]))
+
+        if "allowed_extensions" in settings:
+            exts = settings["allowed_extensions"]
+            if exts:
+                self.allowed_ext_input.setText("; ".join(exts))
+                self.all_extensions_checkbox.setChecked(False)
+                self.allowed_ext_input.setEnabled(True)
+            else:
+                self.allowed_ext_input.clear()
+                self.all_extensions_checkbox.setChecked(True)
+                self.allowed_ext_input.setEnabled(False)
+
+    def _apply_selected_template(self):
+        """Применяет выбранный шаблон к текущим настройкам"""
+        current_item = self.templates_list.currentItem()
+        if current_item:
+            template = current_item.data(Qt.UserRole)
+            if template:
+                self._apply_template_settings(template)
+                # Переключаемся на вкладку настроек
+                self.tab_widget.setCurrentWidget(self.settings_tab)
+
+                # Устанавливаем выбранный шаблон в комбобоксе
+                index = self.template_combo.findData(template["id"])
+                if index >= 0:
+                    self.template_combo.setCurrentIndex(index)
+
+    def _save_current_as_template(self):
+        """Сохраняет текущие настройки как новый шаблон"""
+        # Получаем имя шаблона
+        name, ok = QInputDialog.getText(
+            self,
+            "Создание шаблона",
+            "Введите название шаблона:",
+            QLineEdit.Normal,
+            ""
+        )
+
+        if ok and name:
+            # Собираем настройки
+            settings = self._get_current_settings()
+
+            # Создаём шаблон
+            template = self.template_manager.create(name, settings)
+
+            # Обновляем списки
+            self._load_templates()
+
+            # Выбираем новый шаблон
+            index = self.template_combo.findData(template["id"])
+            if index >= 0:
+                self.template_combo.setCurrentIndex(index)
+
+            QMessageBox.information(self, "Успех", f"Шаблон '{name}' создан!")
+
+    def _get_current_settings(self):
+        """Возвращает текущие настройки из полей"""
+        ignored_dirs = [
+            d.strip() for d in self.ignored_dirs_input.text().split(';') 
+            if d.strip()
+        ]
+
+        ignored_files = [
+            f.strip() for f in self.ignored_files_input.text().split(';') 
+            if f.strip()
+        ]
+
+        if self.all_extensions_checkbox.isChecked():
+            allowed_extensions = []
+        else:
+            allowed_extensions = [
+                ext.strip() for ext in self.allowed_ext_input.text().split(';') 
+                if ext.strip()
+            ]
+
+        return {
+            "ignored_dirs": ignored_dirs,
+            "ignored_files": ignored_files,
+            "allowed_extensions": allowed_extensions
+        }
+
+    def _add_template(self):
+        """Добавляет новый шаблон"""
+        self._save_current_as_template()
+
+    def _edit_template(self):
+        """Редактирует выбранный шаблон"""
+        current_item = self.templates_list.currentItem()
+        if not current_item:
+            QMessageBox.warning(self, "Ошибка", "Выберите шаблон для редактирования")
+            return
+
+        template = current_item.data(Qt.UserRole)
+        if not template:
+            return
+
+        # Запрашиваем новое имя
+        name, ok = QInputDialog.getText(
+            self,
+            "Редактирование шаблона",
+            "Введите новое название шаблона:",
+            QLineEdit.Normal,
+            template.get("name", "")
+        )
+
+        if ok and name:
+            # Получаем текущие настройки
+            settings = self._get_current_settings()
+
+            # Обновляем шаблон
+            updated = self.template_manager.update(
+                template["id"],
+                name=name,
+                settings=settings
+            )
+
+            if updated:
+                self._load_templates()
+                QMessageBox.information(self, "Успех", "Шаблон обновлён!")
+
+    def _delete_template(self):
+        """Удаляет выбранный шаблон"""
+        current_item = self.templates_list.currentItem()
+        if not current_item:
+            QMessageBox.warning(self, "Ошибка", "Выберите шаблон для удаления")
+            return
+
+        template = current_item.data(Qt.UserRole)
+        if not template:
+            return
+
+        reply = QMessageBox.question(
+            self,
+            "Подтверждение удаления",
+            f"Вы уверены, что хотите удалить шаблон '{template.get('name', '')}'?",
+            QMessageBox.Yes | QMessageBox.No
+        )
+
+        if reply == QMessageBox.Yes:
+            success = self.template_manager.delete(template["id"])
+            if success:
+                self._load_templates()
+                self._clear_template_details()
+                QMessageBox.information(self, "Успех", "Шаблон удалён!")
+            else:
+                QMessageBox.warning(self, "Ошибка", "Не удалось удалить шаблон")
+
+    def _on_template_context_menu(self, pos):
+        """Контекстное меню для шаблонов"""
+        item = self.templates_list.itemAt(pos)
+        if not item:
+            return
+
+        menu = QMenu()
+
+        apply_action = menu.addAction("📋 Применить")
+        edit_action = menu.addAction("✏️ Редактировать")
+        delete_action = menu.addAction("🗑 Удалить")
+        menu.addSeparator()
+        duplicate_action = menu.addAction("➕ Дублировать")
+
+        action = menu.exec(self.templates_list.mapToGlobal(pos))
+
+        template = item.data(Qt.UserRole)
+        if not template:
+            return
+
+        if action == apply_action:
+            self._apply_template_settings(template)
+            self.tab_widget.setCurrentWidget(self.settings_tab)
+        elif action == edit_action:
+            self._edit_template()
+        elif action == delete_action:
+            self._delete_template()
+        elif action == duplicate_action:
+            self._duplicate_template(template)
+
+    def _duplicate_template(self, template):
+        """Создаёт копию шаблона"""
+        name, ok = QInputDialog.getText(
+            self,
+            "Дублирование шаблона",
+            "Введите название для копии:",
+            QLineEdit.Normal,
+            f"{template.get('name', '')} (копия)"
+        )
+
+        if ok and name:
+            # Создаём новый шаблон с теми же настройками
+            new_template = self.template_manager.create(
+                name,
+                template.get("settings", {})
+            )
+
+            # Обновляем списки
+            self._load_templates()
+            QMessageBox.information(self, "Успех", f"Шаблон '{name}' создан!")
     def _open_result_file(self, entry):
         """Открывает файл результата"""
         output_file = Path(entry["output_file"])
@@ -265,6 +672,7 @@ class MainWindow(QMainWindow):
                 self._show_info("Запись удалена")
             else:
                 self._show_error("Ошибка при удалении")
+
     def _on_history_item_clicked(self, item):
         """Открывает окно с деталями элемента при клике"""
         entry = item.data(Qt.UserRole)
