@@ -39,9 +39,9 @@ from structurizer.storage.template_manager import TemplateManager
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Project Analyzer")
+        self.setWindowTitle("Structurizer")
         self.resize(600, 350)
-
+        self._set_window_icon()
         BASE_DIR = Path(__file__).resolve().parent.parent
 
         self.history_manager = HistoryManager(
@@ -177,6 +177,28 @@ class MainWindow(QMainWindow):
 
         # Настраиваем автодополнение для поиска (опционально)
         self._setup_search_autocomplete()
+
+    def _set_window_icon(self):
+        """Устанавливает иконку окна"""
+        base_dir = Path(__file__).resolve().parent.parent
+
+        # Пробуем разные пути к иконке
+        icon_paths = [
+            base_dir / "icon.ico",
+            base_dir / "ui" / "icons" / "icon.ico",
+            base_dir / "ui" / "icons" / "app_icon.ico",
+            base_dir / "icon.png",
+        ]
+
+        for icon_path in icon_paths:
+            if icon_path.exists():
+                try:
+                    from PySide6.QtGui import QIcon
+                    self.setWindowIcon(QIcon(str(icon_path)))
+                    print(f"Иконка окна загружена: {icon_path}")
+                    break
+                except Exception as e:
+                    print(f"Ошибка загрузки иконки {icon_path}: {e}")
 
     def _build_templates_tab(self):
         """Создаёт вкладку управления шаблонами"""
