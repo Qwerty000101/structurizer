@@ -2,22 +2,27 @@
   "version": 1,
   "items": [
     {
-      "id": "3ff49fa5",
-      "project_path": "C:\\Users\\HAIER\\Desktop\\LLM\\test\\backend",
-      "output_file": "D:\\structurizer\\structurizer\\storage\\outputs\\backend_20260103_013158.txt",
-      "created_at": "2026-01-03T01:31:58",
+      "id": "7cc59357",
+      "project_path": "C:\\Users\\HAIER\\Desktop\\LLM\\test\\frontend",
+      "output_file": "D:\\structurizer\\structurizer\\storage\\outputs\\frontend_20260103_144943.txt",
+      "created_at": "2026-01-03T14:49:43",
       "settings": {
         "ignored_dirs": [
           "node_modules"
         ],
         "ignored_files": [
-          "types.d.ts"
+          ".gitignore"
         ],
         "allowed_extensions": [
+          ".js",
           ".ts",
-          ".tsx"
+          ".tsx",
+          ".jsx"
         ]
-      }
+      },
+      "display_name": "frontend",
+      "description": "",
+      "line_count": 3033
     }
   ]
 }

@@ -12,43 +12,49 @@ from PySide6.QtWidgets import (
     QSizePolicy,
     QListWidgetItem
 )
+from PySide6.QtWidgets import QApplication, QMessageBox
+from PySide6.QtGui import QClipboard
 from PySide6.QtCore import Qt
 from structurizer.storage.history_manager import HistoryManager
 from pathlib import Path
 from datetime import datetime
 import os
-
+from structurizer.config import STORAGE_DIR
+from structurizer.ui.detail_window import DetailWindow
+from structurizer.ui.clipboard_utils import copy_file_content_to_clipboard
+from structurizer.ui.file_clipboard import copy_file_to_clipboard_as_object
+from structurizer.analyzer.project_analyzer import ProjectAnalyzer
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Project Analyzer")
-        self.resize(1100, 700)
-
-        BASE_DIR = Path(__file__).resolve().parent.parent
-
-        self.history_manager = HistoryManager(
-            base_dir=BASE_DIR / "storage"  # ← убрать / "outputs"
-        )
+        self.resize(600, 350)
+        
+        self.history_manager = HistoryManager(base_dir=STORAGE_DIR)
         self._build_ui()
         self._load_history()
 
     def _load_history(self):
+        """Загружает историю анализов"""
         self.history_list.clear()
 
-        items = self.history_manager.load()  # Уже возвращает список словарей
+        items = self.history_manager.load()
 
         for item in items:
-            # Используем только имя папки для отображения
-            project_path = Path(item["project_path"])
-            display_name = project_path.name if project_path.name else str(project_path)
+            display_name = item.get('display_name', '')
+            if not display_name:
+                project_path = Path(item.get('project_path', ''))
+                display_name = project_path.name if project_path.name else str(project_path)
 
-            item_text = f"{display_name} ({item['created_at']})"
-            list_item = QListWidgetItem(item_text)
+            created_at = item.get('created_at', '')
+            if created_at:
+                display_text = f"{display_name} ({created_at})"
+            else:
+                display_text = display_name
 
-            # Сохраняем ВСЮ запись для доступа к output_file
+            list_item = QListWidgetItem(display_text)
             list_item.setData(Qt.UserRole, item)
-
             self.history_list.addItem(list_item)
 
     def _build_ui(self):
@@ -139,7 +145,6 @@ class MainWindow(QMainWindow):
         self.all_extensions_checkbox.toggled.connect(
             self.allowed_ext_input.setDisabled
         )
-        # В конце _build_ui():
         self.start_button.clicked.connect(self._on_start_clicked)
 
     # =====================
@@ -167,11 +172,20 @@ class MainWindow(QMainWindow):
     def _copy_to_clipboard(self, entry):
         """Копирует путь к файлу в буфер обмена"""
         output_file = Path(entry["output_file"])
-        from PySide6.QtWidgets import QApplication
-        from PySide6.QtGui import QClipboard
 
         clipboard = QApplication.clipboard()
         clipboard.setText(str(output_file))
+
+
+    def _delete_history_item_by_id(self, item_id):
+        """Удаляет элемент истории по ID"""
+        success = self.history_manager.remove(item_id, delete_output=True)
+        if success:
+            self._load_history()  # Обновляем список
+            QMessageBox.information(self, "Удалено", "Элемент успешно удален")
+        else:
+            QMessageBox.warning(self, "Ошибка", "Не удалось удалить элемент")
+
 
     def _delete_history_item(self, entry, item):
         """Удаляет элемент истории"""
@@ -192,24 +206,26 @@ class MainWindow(QMainWindow):
             else:
                 self._show_error("Ошибка при удалении")
     def _on_history_item_clicked(self, item):
-        """Открывает файл результата при клике на элемент истории"""
+        """Открывает окно с деталями элемента при клике"""
         entry = item.data(Qt.UserRole)
+        if entry:
+            self._open_detail_window(entry)
 
-        if not entry:
-            return
+    def _open_detail_window(self, history_item):
+        """Открывает окно с деталями элемента"""
+        detail_window = DetailWindow(
+            history_item=history_item,
+            history_manager=self.history_manager,
+            parent=self
+        )
 
-        output_file = Path(entry["output_file"])
+        # Подключаем сигнал обновления
+        detail_window.item_updated.connect(self._on_item_updated)
 
-        if output_file.exists():
-            try:
-                import os
-                import subprocess
-                # Открываем файл в блокноте (или другом текстовом редакторе)
-                os.startfile(str(output_file))
-            except Exception as e:
-                self._show_error(f"Не удалось открыть файл: {e}")
-        else:
-            self._show_error("Файл не найден")
+        detail_window.exec()
+    def _on_item_updated(self, updated_item):
+        """Обновляет элемент в списке после сохранения изменений"""
+        self._load_history()  # Перезагружаем список
 
     def _on_browse_clicked(self):
         """Открывает диалог выбора папки"""
@@ -224,26 +240,34 @@ class MainWindow(QMainWindow):
     def _on_history_context_menu(self, pos):
         """Показывает контекстное меню для элемента истории"""
         item = self.history_list.itemAt(pos)
-
         if not item:
             return
 
         entry = item.data(Qt.UserRole)
+        if not entry:
+            return
 
         from PySide6.QtWidgets import QMenu
 
         menu = QMenu()
 
-        # Действия меню
-        open_action = menu.addAction("📂 Открыть файл")
-        open_in_explorer_action = menu.addAction("📁 Открыть в проводнике")
+        rename_action = menu.addAction("✏️ Переименовать")
+        open_action = menu.addAction("📄 Открыть файл")
+        open_in_explorer_action = menu.addAction("📂 Открыть в проводнике")
+        copy_file_object_action = menu.addAction("📁 Копировать файл (как объект)")
+        copy_file_action = menu.addAction("📋 Копировать содержимое")
         copy_path_action = menu.addAction("📋 Копировать путь")
+        menu.addSeparator()
         delete_action = menu.addAction("🗑 Удалить")
 
-        # Показываем меню
         action = menu.exec(self.history_list.mapToGlobal(pos))
-
-        if action == open_action:
+        if action == copy_file_object_action:
+            self._copy_file_as_object(entry)
+        elif action == copy_file_action:
+            self._copy_file_to_clipboard(entry)
+        elif action == rename_action:
+            self._open_detail_window(entry)
+        elif action == open_action:
             self._open_result_file(entry)
         elif action == open_in_explorer_action:
             self._open_in_explorer(entry)
@@ -252,13 +276,29 @@ class MainWindow(QMainWindow):
         elif action == delete_action:
             self._delete_history_item(entry, item)
 
+    def _copy_file_to_clipboard(self, entry):
+        """Копирует содержимое файла в буфер обмена"""
+        output_file = Path(entry.get('output_file', ''))
+        if output_file.exists():
+            copy_file_content_to_clipboard(output_file, self)
+        else:
+            self._show_error("Файл не найден")
+
+
+    def _copy_file_as_object(self, entry):
+        """Копирует файл как объект в буфер обмена"""
+        output_file = Path(entry.get('output_file', ''))
+        if output_file.exists():
+            copy_file_to_clipboard_as_object(output_file, self)
+        else:
+            self._show_error("Файл не найден")
+
 
     def _on_start_clicked(self):
         """Запускает анализ проекта"""
         project_path_str = self.path_input.text().strip()
 
         if not project_path_str:
-            # Показать сообщение об ошибке
             self._show_error("Укажите путь к проекту")
             return
 
@@ -268,7 +308,6 @@ class MainWindow(QMainWindow):
             self._show_error(f"Путь не существует: {project_path}")
             return
 
-        # Парсим настройки
         ignored_dirs = [
             d.strip() for d in self.ignored_dirs_input.text().split(';') 
             if d.strip()
@@ -279,23 +318,19 @@ class MainWindow(QMainWindow):
         ]
 
         if self.all_extensions_checkbox.isChecked():
-            allowed_extensions = None  # Анализировать все файлы
+            allowed_extensions = None
         else:
             allowed_extensions = [
                 ext.strip() for ext in self.allowed_ext_input.text().split(';') 
                 if ext.strip()
             ]
 
-        # Генерируем имя для выходного файла
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         project_name = project_path.name or "project"
         output_filename = f"{project_name}_{timestamp}.txt"
         output_file = self.history_manager.outputs_dir / output_filename
 
         try:
-            # Создаем анализатор
-            from structurizer.analyzer.project_analyzer import ProjectAnalyzer
-
             analyzer = ProjectAnalyzer(
                 root_dir=project_path,
                 output_file=output_file,
@@ -305,6 +340,12 @@ class MainWindow(QMainWindow):
             )
 
             analyzer.run()
+
+            # Подсчитываем количество строк в результате
+            line_count = 0
+            if output_file.exists():
+                with open(output_file, 'r', encoding='utf-8') as f:
+                    line_count = sum(1 for _ in f)
 
             # Добавляем в историю
             settings = {
@@ -319,14 +360,24 @@ class MainWindow(QMainWindow):
                 settings=settings
             )
 
+            # Обновляем счетчик строк (если метод add вернул словарь)
+            if history_item and isinstance(history_item, dict):
+                self.history_manager.update(
+                    history_item['id'],
+                    line_count=line_count
+                )
+
+                # Обновляем локальную копию для немедленного отображения
+                history_item['line_count'] = line_count
+
             # Обновляем список
             self._load_history()
 
             # Показываем сообщение об успехе
-            self._show_info(f"Анализ завершен. Файл: {output_file}")
+            self._show_info(f"Анализ завершен. Строк: {line_count}")
 
         except Exception as e:
-            self._show_error(f"Ошибка при анализе: {e}")
+            self._show_error(f"Ошибка при анализе: {str(e)}")
 
 
     def _show_error(self, message):

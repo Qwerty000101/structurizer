@@ -9,7 +9,16 @@ class HistoryEntry:
     def __init__(self, project_path: Path, output_file: Path):
         self.project_path = project_path
         self.output_file = output_file
+        # В __init__ добавьте:
+        if not self.history_file.exists():
+            self._write_history({
+                "version": self.HISTORY_VERSION,
+                "items": []
+            })
+        # Убедитесь, что outputs_dir существует
+        self.outputs_dir.mkdir(parents=True, exist_ok=True)
 
+        
     def __str__(self):
         return str(self.project_path)
     
@@ -44,6 +53,8 @@ class HistoryManager:
         data = self._read_history()
         return data.get("items", [])
 
+    # В history_manager.py изменим метод add:
+
     def add(
         self,
         project_path: Path,
@@ -61,12 +72,32 @@ class HistoryManager:
             "output_file": str(output_file),
             "created_at": datetime.now().isoformat(timespec="seconds"),
             "settings": settings,
+            "display_name": project_path.name,
+            "description": "",
+            "line_count": 0,
         }
 
         data["items"].append(item)
         self._write_history(data)
 
         return item
+    
+    def update(self, item_id: str, **kwargs) -> Optional[Dict]:
+        """
+        Обновляет запись по id. kwargs - поля для обновления.
+        Возвращает обновленную запись или None, если запись не найдена.
+        """
+        data = self._read_history()
+        items = data.get("items", [])
+
+        for item in items:
+            if item.get("id") == item_id:
+                item.update(kwargs)
+                self._write_history(data)
+                return item
+    
+        return None
+
     def get_all(self) -> List[Dict]:
         """
         Возвращает все сохранённые элементы истории.
